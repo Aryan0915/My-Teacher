@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+
+<url>
+<loc>https://my-teacher-india.netlify.app/news/news1.html</loc>
+<news:news>
+<news:publication>
+<news:name>My Teacher</news:name>
+<news:language>hi</news:language>
+</news:publication>
+<news:publication_date>2026-03-15</news:publication_date>
+<news:title>मध्यप्रदेश में शिक्षकों के लिए नई गाइडलाइन</news:title>
+</news:news>
+</url>
+
+<url>
+<loc>https://my-teacher-india.netlify.app/news/news2.html</loc>
+<news:news>
+<news:publication>
+<news:name>My Teacher</news:name>
+<news:language>hi</news:language>
+</news:publication>
+<news:publication_date>2026-03-15</news:publication_date>
+<news:title>स्कूलों में डिजिटल शिक्षा को बढ़ावा</news:title>
+</news:news>
+</url>
+
+<url>
+<loc>https://my-teacher-india.netlify.app/news/news3.html</loc>
+<news:news>
+<news:publication>
+<news:name>My Teacher</news:name>
+<news:language>hi</news:language>
+</news:publication>
+<news:publication_date>2026-03-15</news:publication_date>
+<news:title>CBSE बोर्ड परीक्षा में बदलाव</news:title>
+</news:news>
+</url>
+
+<url>
+<loc>https://my-teacher-india.netlify.app/news/news4.html</loc>
+<news:news>
+<news:publication>
+<news:name>My Teacher</news:name>
+<news:language>hi</news:language>
+</news:publication>
+<news:publication_date>2026-03-15</news:publication_date>
+<news:title>नई शिक्षा नीति से स्कूलों में बदलाव</news:title>
+</news:news>
+</url>
+
+</urlset>
