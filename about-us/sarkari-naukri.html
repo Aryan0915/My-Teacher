@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sarkari Naukri — My Teacher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Hind:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="about-us.css">
+</head>
+<body>
+  <nav class="news-navbar">
+    <a href="../index.html" class="nav-logo">🎓 My Teacher</a>
+    <a href="../index.html" class="nav-back-btn">← Back to Home</a>
+  </nav>
+  <div class="page-container">
+    <main class="article-area">
+      <span class="article-category">🏫 Sarkari Naukri</span>
+      <h1 class="article-title">सरकारी नौकरी — ताज़ा भर्तियां</h1>
+      <p class="article-date">Government job vacancies & latest updates</p>
+      <div class="cards-grid" id="naukri-container">
+        <p style="color:#888;">⏳ Loading...</p>
+      </div>
+    </main>
+    <aside class="sidebar">
+      <div class="sidebar-box">
+        <h3>📂 Categories</h3>
+        <ul>
+          <li><a href="education-news.html">📚 Education News</a></li>
+          <li><a href="sarkari-naukri.html">🏫 Sarkari Naukri</a></li>
+          <li><a href="study-material.html">✏️ Study Material</a></li>
+          <li><a href="app-info.html">✅ Hamare App</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-box">
+        <h3>🔗 Important Links</h3>
+        <ul>
+          <li><a href="https://www.mpbse.nic.in" target="_blank">MP Board Official</a></li>
+          <li><a href="https://www.mponline.gov.in" target="_blank">MP Online Portal</a></li>
+          <li><a href="https://www.education.mp.gov.in" target="_blank">MP Education Dept.</a></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const container = document.getElementById('naukri-container');
+      if (!container) return;
+     document.addEventListener('DOMContentLoaded', function() {
+  const container = document.getElementById('naukri-container');
+  if (!container) return;
+  if (typeof naukariData !== 'undefined') {
+    container.innerHTML = '';
+    naukariData.forEach(item => {
+      const imgHTML = item.image
+        ? `<img src="${item.image}" alt="${item.title}" class="card-img">`
+        : '';
+      container.innerHTML += `
+        <div class="content-card">
+          ${imgHTML}
+          <div class="card-body">
+            <div class="card-date">📅 ${item.date}</div>
+            <span class="card-category">${item.category}</span>
+            <h3>${item.title}</h3>
+            <p>${item.desc}</p>
+            <a href="${item.link}" class="read-more">Read More →</a>
+          </div>
+        </div>`;
+    });
+  }
+});
+    });
+  </script>
+  <script src="../site-data.js"></script>
+</body>
+</html>

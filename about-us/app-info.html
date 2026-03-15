@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>हमारे शिक्षक एप — My Teacher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Hind:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1a237e;
+      --primary-light: #1565c0;
+      --bg: #f4f6fb;
+      --white: #ffffff;
+      --text: #2d2d2d;
+      --text-light: #666;
+      --border: #e0e0e0;
+      --shadow: 0 4px 16px rgba(0,0,0,0.07);
+      --radius: 12px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Hind', sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; }
+
+    .navbar { background: var(--primary); padding: 14px 30px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+    .nav-logo { color: white; font-size: 20px; font-weight: 700; text-decoration: none; font-family: 'Poppins', sans-serif; }
+    .nav-back-btn { background: #ffeb3b; color: var(--primary); padding: 8px 18px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 700; transition: 0.3s; }
+    .nav-back-btn:hover { background: white; }
+
+    .page-container { max-width: 1200px; margin: 30px auto; padding: 0 24px 60px; display: flex; gap: 28px; align-items: flex-start; }
+
+    .article-area { flex: 3; background: white; border-radius: var(--radius); padding: 40px; box-shadow: var(--shadow); }
+
+    .article-category { display: inline-block; background: #e8f0fe; color: var(--primary); font-size: 12px; font-weight: 700; padding: 4px 14px; border-radius: 20px; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+    .article-title { font-family: 'Poppins', sans-serif; font-size: 26px; font-weight: 700; color: var(--primary); line-height: 1.4; margin-bottom: 8px; }
+
+    .article-subtitle { font-size: 16px; color: var(--text-light); margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+
+    .featured-image { width: 100%; border-radius: 10px; display: block; margin-bottom: 8px; }
+    .img-caption { font-size: 13px; color: var(--text-light); font-style: italic; text-align: center; margin-bottom: 28px; }
+
+    .article-content p { font-size: 16px; line-height: 1.9; color: #333; margin-bottom: 20px; }
+
+    .sub-heading { font-family: 'Poppins', sans-serif; font-size: 19px; font-weight: 700; color: var(--primary); margin-top: 36px; margin-bottom: 14px; padding-left: 14px; border-left: 4px solid var(--primary-light); scroll-margin-top: 80px; }
+
+    /* STEPS */
+    .steps-list { list-style: none; margin: 16px 0 24px; }
+    .steps-list li { display: flex; gap: 16px; margin-bottom: 20px; align-items: flex-start; }
+    .step-number { background: var(--primary); color: white; font-family: 'Poppins', sans-serif; font-size: 15px; font-weight: 700; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+    .step-content h4 { font-family: 'Poppins', sans-serif; font-size: 15px; font-weight: 600; color: var(--primary); margin-bottom: 4px; }
+    .step-content p { font-size: 15px; color: #444; margin-bottom: 0; }
+
+    /* FEATURES GRID */
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 20px 0; }
+    .feature-card { background: #f8faff; border: 1px solid #e8f0fe; border-radius: 10px; padding: 18px 16px; text-align: center; }
+    .feature-card .f-icon { font-size: 1.8rem; margin-bottom: 10px; display: block; }
+    .feature-card h4 { font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 600; color: var(--primary); margin-bottom: 6px; }
+    .feature-card p { font-size: 13px; color: var(--text-light); }
+
+    /* INLINE IMAGE */
+    .inline-image { margin: 24px 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+    .inline-image img { width: 100%; display: block; }
+    .inline-image .caption { padding: 8px 14px; font-size: 12px; color: var(--text-light); background: #fafafa; font-style: italic; }
+
+    /* INFO BOX */
+    .info-box { background: #e8f0fe; border-radius: 10px; padding: 18px 22px; margin: 24px 0; font-size: 15px; color: #1a237e; border-left: 4px solid var(--primary); }
+
+    /* DOWNLOAD SECTION */
+    .download-section { background: linear-gradient(135deg, var(--primary), var(--primary-light)); border-radius: var(--radius); padding: 28px; margin-top: 36px; text-align: center; color: white; }
+    .download-section h3 { font-family: 'Poppins', sans-serif; font-size: 20px; margin-bottom: 8px; }
+    .download-section p { font-size: 14px; opacity: 0.85; margin-bottom: 20px; }
+    .download-btn { display: inline-block; background: #ffeb3b; color: var(--primary); padding: 12px 28px; border-radius: 8px; font-size: 15px; font-weight: 700; text-decoration: none; font-family: 'Poppins', sans-serif; transition: 0.3s; }
+    .download-btn:hover { background: white; transform: translateY(-2px); }
+
+    .divider { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+
+    .back-btn { display: inline-block; margin-top: 32px; padding: 10px 24px; background: var(--primary); color: white; text-decoration: none; border-radius: 8px; font-size: 15px; font-weight: 600; font-family: 'Poppins', sans-serif; transition: 0.3s; }
+    .back-btn:hover { background: var(--primary-light); }
+
+    /* SIDEBAR */
+    .sidebar { flex: 1; min-width: 220px; position: sticky; top: 80px; }
+    .sidebar-box { background: white; padding: 20px; border-radius: var(--radius); box-shadow: var(--shadow); margin-bottom: 20px; }
+    .sidebar-box h3 { font-family: 'Poppins', sans-serif; font-size: 15px; font-weight: 700; color: var(--primary); margin-bottom: 14px; padding-bottom: 8px; border-bottom: 2px solid #e8f0fe; }
+    .toc-list { list-style: none; }
+    .toc-list li { margin-bottom: 2px; }
+    .toc-list a { display: block; padding: 7px 10px; border-radius: 6px; text-decoration: none; font-size: 13px; color: #333; transition: 0.2s; border-left: 3px solid transparent; }
+    .toc-list a:hover, .toc-list a.active { background: #e8f0fe; color: var(--primary); border-left-color: var(--primary); padding-left: 14px; }
+    .sidebar-box ul { list-style: none; }
+    .sidebar-box ul li { margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px solid #f5f5f5; font-size: 13px; }
+    .sidebar-box ul li:last-child { border-bottom: none; margin-bottom: 0; }
+    .sidebar-box ul li a { color: #333; text-decoration: none; display: block; transition: 0.2s; }
+    .sidebar-box ul li a:hover { color: var(--primary-light); padding-left: 4px; }
+
+    @media (max-width: 900px) {
+      .page-container { flex-direction: column; padding: 0 14px 40px; margin: 16px auto; }
+      .sidebar { position: static; order: -1; }
+      .article-area { padding: 22px; }
+      .article-title { font-size: 21px; }
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="../index.html" class="nav-logo">🎓 My Teacher</a>
+    <a href="../index.html" class="nav-back-btn">← Back to Home</a>
+  </nav>
+
+  <div class="page-container">
+
+    <main class="article-area">
+
+      <span class="article-category">हमारे बारे में</span>
+      <h1 class="article-title">हमारे शिक्षक एप — पूरी जानकारी</h1>
+      <p class="article-subtitle">मध्यप्रदेश सरकार का शिक्षकों के लिए आधिकारिक एप — उपयोग की सरल जानकारी</p>
+
+      <!-- FEATURED IMAGE — apni image ka path daalo -->
+      <img src="images/app-banner.png" class="featured-image" alt="हमारे शिक्षक एप" onerror="this.style.display='none'">
+      <p class="img-caption">हमारे शिक्षक — मध्यप्रदेश सरकार का आधिकारिक शिक्षक एप</p>
+
+      <article class="article-content">
+
+        <!-- SECTION 1 -->
+        <h2 class="sub-heading" id="parichay">एप का परिचय</h2>
+        <p>
+          "हमारे शिक्षक" मध्यप्रदेश सरकार द्वारा शिक्षकों के लिए विकसित एक
+          आधिकारिक मोबाइल एप है। इस एप के माध्यम से प्रदेश के सरकारी विद्यालयों
+          के शिक्षक अपनी दैनिक उपस्थिति दर्ज करने के साथ-साथ कई अन्य
+          महत्वपूर्ण कार्य भी कर सकते हैं।
+        </p>
+        <p>
+          यह एप शिक्षकों की सुविधा को ध्यान में रखकर बनाया गया है ताकि
+          सभी आवश्यक कार्य एक ही स्थान से किए जा सकें।
+        </p>
+
+        <!-- SECTION 2 -->
+        <h2 class="sub-heading" id="suvidhayen">एप की सुविधाएं</h2>
+        <p>इस एप में शिक्षकों के लिए निम्नलिखित सुविधाएं उपलब्ध हैं —</p>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <span class="f-icon">📋</span>
+            <h4>उपस्थिति</h4>
+            <p>प्रतिदिन की उपस्थिति दर्ज करें</p>
+          </div>
+          <div class="feature-card">
+            <span class="f-icon">📝</span>
+            <h4>अवकाश आवेदन</h4>
+            <p>छुट्टी के लिए ऑनलाइन आवेदन करें</p>
+          </div>
+          <div class="feature-card">
+            <span class="f-icon">💰</span>
+            <h4>वेतन पर्ची</h4>
+            <p>मासिक वेतन पर्ची देखें व डाउनलोड करें</p>
+          </div>
+          <div class="feature-card">
+            <span class="f-icon">👤</span>
+            <h4>प्रोफाइल</h4>
+            <p>व्यक्तिगत जानकारी अपडेट करें</p>
+          </div>
+          <div class="feature-card">
+            <span class="f-icon">📢</span>
+            <h4>सूचनाएं</h4>
+            <p>सरकारी नोटिस व परिपत्र देखें</p>
+          </div>
+        </div>
+
+        <!-- SECTION 3 -->
+        <h2 class="sub-heading" id="download">एप कैसे डाउनलोड करें</h2>
+
+        <ul class="steps-list">
+          <li>
+            <div class="step-number">१</div>
+            <div class="step-content">
+              <h4>Google Play Store खोलें</h4>
+              <p>अपने Android फ़ोन में Google Play Store खोलें।</p>
+            </div>
+          </li>
+          <li>
+            <div class="step-number">२</div>
+            <div class="step-content">
+              <h4>एप खोजें</h4>
+              <p>Search bar में "हमारे शिक्षक" लिखें और खोजें।</p>
+            </div>
+          </li>
+          <li>
+            <div class="step-number">३</div>
+            <div class="step-content">
+              <h4>Install करें</h4>
+              <p>मध्यप्रदेश सरकार का आधिकारिक एप चुनें और Install बटन दबाएं।</p>
+            </div>
+          </li>
+        </ul>
+
+        <!-- INLINE IMAGE -->
+        <div class="inline-image">
+          <img src="images/app-download.png" alt="Play Store Screenshot" onerror="this.style.display='none'">
+          <div class="caption">Google Play Store पर "हमारे शिक्षक" एप</div>
+        </div>
+
+        <!-- SECTION 4 -->
+        <h2 class="sub-heading" id="upasthiti">उपस्थिति कैसे दर्ज करें</h2>
+        <p>एप खोलने के बाद उपस्थिति दर्ज करने के लिए ये चरण अपनाएं —</p>
+
+        <ul class="steps-list">
+          <li>
+            <div class="step-number">१</div>
+            <div class="step-content">
+              <h4>Login करें</h4>
+              <p>अपनी Employee ID और Password से Login करें।</p>
+            </div>
+          </li>
+          <li>
+            <div class="step-number">२</div>
+            <div class="step-content">
+              <h4>उपस्थिति विकल्प चुनें</h4>
+              <p>मुख्य मेनू में "उपस्थिति" या "Attendance" विकल्प पर जाएं।</p>
+            </div>
+          </li>
+          <li>
+            <div class="step-number">३</div>
+            <div class="step-content">
+              <h4>उपस्थिति दर्ज करें</h4>
+              <p>आज की दिनांक चुनें और उपस्थिति दर्ज करें। Location की अनुमति दें।</p>
+            </div>
+          </li>
+          <li>
+            <div class="step-number">४</div>
+            <div class="step-content">
+              <h4>Submit करें</h4>
+              <p>Submit बटन दबाएं। उपस्थिति सफलतापूर्वक दर्ज हो जाएगी।</p>
+            </div>
+          </li>
+        </ul>
+
+        <!-- INLINE IMAGE 2 -->
+        <div class="inline-image">
+          <img src="images/app-attendance.png" alt="Attendance Screen" onerror="this.style.display='none'">
+          <div class="caption">उपस्थिति दर्ज करने की स्क्रीन</div>
+        </div>
+
+        <!-- SECTION 5 -->
+        <h2 class="sub-heading" id="samasya">समस्या आने पर क्या करें</h2>
+        <p>
+          यदि एप में Login न हो या उपस्थिति दर्ज न हो तो अपने
+          विद्यालय के प्रधानाध्यापक या जिला शिक्षा अधिकारी से
+          संपर्क करें।
+        </p>
+
+        <div class="info-box">
+          तकनीकी सहायता के लिए MP शिक्षा विभाग की आधिकारिक वेबसाइट
+          <strong>education.mp.gov.in</strong> पर जाएं।
+        </div>
+
+        <hr class="divider">
+
+        <!-- DOWNLOAD SECTION -->
+        <div class="download-section">
+          <h3>एप अभी डाउनलोड करें</h3>
+          <p>Google Play Store पर उपलब्ध — बिल्कुल निशुल्क</p>
+          <a href="https://play.google.com/store/search?q=hamare%20shikshak&c=apps"
+             target="_blank" class="download-btn">
+            Google Play Store पर जाएं
+          </a>
+        </div>
+
+      </article>
+
+      <a href="../index.html" class="back-btn">वापस होम पर जाएं</a>
+
+    </main>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+      <div class="sidebar-box">
+        <h3>इस लेख में</h3>
+        <ul class="toc-list">
+          <li><a href="#parichay">एप का परिचय</a></li>
+          <li><a href="#suvidhayen">एप की सुविधाएं</a></li>
+          <li><a href="#download">एप डाउनलोड करें</a></li>
+          <li><a href="#upasthiti">उपस्थिति दर्ज करें</a></li>
+          <li><a href="#samasya">समस्या आने पर</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-box">
+        <h3>विभाग</h3>
+        <ul>
+          <li><a href="education-news.html">शिक्षा समाचार</a></li>
+          <li><a href="sarkari-naukri.html">सरकारी नौकरी</a></li>
+          <li><a href="study-material.html">अध्ययन सामग्री</a></li>
+          <li><a href="app-info.html">हमारे शिक्षक एप</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-box">
+        <h3>संपर्क करें</h3>
+        <ul>
+          <li><a href="mailto:tomarsingh004@gmail.com">ईमेल करें</a></li>
+          <li><a href="tel:9754065703">फ़ोन करें</a></li>
+          <li><a href="https://www.education.mp.gov.in" target="_blank">MP Education Dept.</a></li>
+        </ul>
+      </div>
+
+    </aside>
+
+  </div>
+
+  <script>
+    const sections = document.querySelectorAll('.sub-heading');
+    const tocLinks = document.querySelectorAll('.toc-list a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        if (window.scrollY >= section.offsetTop - 100) {
+          current = section.getAttribute('id');
+        }
+      });
+      tocLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

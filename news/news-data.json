@@ -1,0 +1,38 @@
+[
+  {
+    "id": "news1",
+    "date": "10 March 2026",
+    "title": "MP TET Guideline 2026 - शिक्षकों के लिए नई गाइडलाइन",
+    "desc": "मध्यप्रदेश स्कूल शिक्षा विभाग के निर्देश, सभी शिक्षकों को देना होगा TET",
+    "image": "image.png/article-image.jpeg",
+    "link": "news/news1.html",
+    "category": "Education News"
+  },
+  {
+    "id": "news2",
+    "date": "08 March 2026",
+    "title": "शासकीय स्कूलों में डिजिटल शिक्षा योजना लागू",
+    "desc": "मुख्यमंत्री डिजिटल शिक्षा योजना के तहत छात्रों को लैपटॉप मिलेंगे",
+    "image": "image.png/digital.jpeg",
+    "link": "news/news2.html",
+    "category": "Education News"
+  },
+  {
+    "id": "news3",
+    "date": "05 March 2026",
+    "title": "मप्र बोर्ड 2026 का रिजल्ट मई मे, CBSE ने छात्रों के लिए निकाला नया फार्मूला",
+    "desc": "माध्यमिक शिक्षा मण्डल 2026 10 वीं और 12 वीं के रिजल्ट मई में, सीबीएसई ने छात्रों को नए विषय..",
+    "image": "image.png/cbse .jpeg",
+    "link": "news/news3.html",
+    "category": "Education News"
+  },
+  {
+    "id": "news4",
+    "date": "05 March 2026",
+    "title": "राजस्थान मे सीबीएसई की तर्ज पर राज. शिक्षा मण्डल",
+    "desc": "साल में दो बार होगी 10 वीं की परीक्षा, फरवरी और मई में होंगे पेपर",
+    "image": "image.png/exam stu.jpeg",
+    "link": "news/news4.html",
+    "category": "Education News"
+  }
+]

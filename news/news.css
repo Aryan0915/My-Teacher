@@ -1,0 +1,261 @@
+/* =============================================
+   news.css — news folder ke saare pages ke liye
+   news1.html, news2.html, news3.html etc.
+   ============================================= */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Hind', sans-serif;
+  background: #f4f6fb;
+  color: #222;
+}
+
+/* ===== NAVBAR ===== */
+.news-navbar {
+  background: #1a237e;
+  padding: 14px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.nav-logo {
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.nav-back-btn {
+  background: #ffeb3b;
+  color: #1a237e;
+  padding: 8px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  transition: 0.3s;
+}
+
+.nav-back-btn:hover {
+  background: white;
+}
+
+/* ===== PAGE LAYOUT ===== */
+.page-container {
+  max-width: 1200px;
+  margin: 36px auto;
+  padding: 0 24px 60px;
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+/* ===== ARTICLE AREA (LEFT) ===== */
+.article-area {
+  flex: 3;
+  background: white;
+  border-radius: 12px;
+  padding: 36px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+/* Category badge */
+.article-category {
+  display: inline-block;
+  background: #e8f0fe;
+  color: #1a237e;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 14px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Main heading */
+.article-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #1a237e;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+/* Date & author */
+.article-date {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 20px;
+}
+
+/* Image wrapper */
+.article-image-wrap {
+  margin-bottom: 24px;
+}
+
+.article-image {
+  width: 100%;
+  border-radius: 10px;
+  display: block;
+}
+
+.image-caption {
+  font-size: 13px;
+  color: #888;
+  margin-top: 8px;
+  font-style: italic;
+}
+
+/* Article paragraphs */
+.article-content p {
+  font-size: 17px;
+  line-height: 1.9;
+  text-align: justify;
+  margin-bottom: 18px;
+  color: #333;
+}
+
+/* Sub headings */
+.sub-heading {
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a237e;
+  margin-top: 28px;
+  margin-bottom: 12px;
+  padding-left: 14px;
+  border-left: 4px solid #1565c0;
+}
+
+/* PDF section */
+.pdf-section {
+  background: #fff8e1;
+  border: 1px solid #ffe082;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 24px 0;
+}
+
+.pdf-section h3 {
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.pdf-btn {
+  display: inline-block;
+  background: #f57c00;
+  color: white;
+  padding: 10px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.pdf-btn:hover { background: #e65100; }
+
+/* Back button */
+.back-btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 10px 24px;
+  background: #1a237e;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.back-btn:hover {
+  background: #1565c0;
+  transform: translateX(-4px);
+}
+
+/* ===== SIDEBAR (RIGHT) ===== */
+.sidebar {
+  flex: 1;
+  min-width: 220px;
+}
+
+.sidebar-box {
+  background: white;
+  padding: 22px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  margin-bottom: 22px;
+}
+
+.sidebar-box h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: #1a237e;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #e8f0fe;
+}
+
+.sidebar-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-box li {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 14px;
+}
+
+.sidebar-box li:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.sidebar-box li a {
+  color: #333;
+  text-decoration: none;
+  transition: 0.2s;
+  display: block;
+}
+
+.sidebar-box li a:hover {
+  color: #1565c0;
+  padding-left: 4px;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 900px) {
+  .page-container {
+    flex-direction: column;
+    margin: 16px auto;
+    padding: 0 14px 40px;
+    gap: 20px;
+  }
+
+  .sidebar {
+    order: -1;
+  }
+
+  .article-area {
+    padding: 22px;
+  }
+
+  .article-title {
+    font-size: 20px;
+  }
+}

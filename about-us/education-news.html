@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Education News — My Teacher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Hind:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1a237e; --primary-light: #1565c0; --accent: #f57c00;
+      --yellow: #ffeb3b; --bg: #f4f6fb; --text: #222; --text-light: #666;
+      --border: #e0e0e0; --shadow: 0 4px 16px rgba(0,0,0,0.08); --radius: 12px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Hind', sans-serif; background: var(--bg); color: var(--text); }
+    @font-face { font-family: 'FourCMaya'; src: url('../fonts/Four C Rahul.ttf'); font-display: swap; }
+    @font-face { font-family: 'FourCLaxman'; src: url('../fonts/Four C LaxmanExtraBold.ttf'); font-display: swap; }
+
+    .navbar { background: var(--primary); padding: 14px 30px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+    .nav-logo { color: white; font-size: 20px; font-weight: 700; text-decoration: none; font-family: 'Poppins', sans-serif; }
+    .nav-back-btn { background: var(--yellow); color: var(--primary); padding: 8px 18px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 700; transition: 0.3s; }
+    .nav-back-btn:hover { background: white; }
+
+    .page-header { background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: white; padding: 40px 30px; text-align: center; }
+    .page-header h1 { font-family: 'FourCMaya', 'Poppins', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+    .page-header p { font-size: 15px; opacity: 0.85; font-family: 'FourCLaxman', 'Hind', sans-serif; }
+    .page-badge { display: inline-block; background: var(--yellow); color: var(--primary); font-size: 12px; font-weight: 700; padding: 4px 14px; border-radius: 20px; margin-bottom: 14px; text-transform: uppercase; letter-spacing: 1px; }
+
+    .page-container { max-width: 1200px; margin: 30px auto; padding: 0 24px 60px; display: flex; gap: 28px; align-items: flex-start; }
+    .main-content { flex: 3; }
+    .sidebar { flex: 1; min-width: 220px; }
+    .sidebar-box { background: white; padding: 20px; border-radius: var(--radius); box-shadow: var(--shadow); margin-bottom: 20px; }
+    .sidebar-box h3 { font-family: 'Poppins', sans-serif; font-size: 15px; font-weight: 700; color: var(--primary); margin-bottom: 14px; padding-bottom: 8px; border-bottom: 2px solid #e8f0fe; }
+    .sidebar-box ul { list-style: none; }
+    .sidebar-box li { margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px solid #f5f5f5; font-size: 13px; }
+    .sidebar-box li:last-child { border-bottom: none; margin-bottom: 0; }
+    .sidebar-box li a { color: #333; text-decoration: none; display: flex; align-items: center; gap: 6px; transition: 0.2s; }
+    .sidebar-box li a:hover { color: var(--primary-light); padding-left: 4px; }
+
+    .articles-list { display: flex; flex-direction: column; gap: 20px; }
+    .article-card { background: white; border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid var(--border); overflow: hidden; display: flex; transition: all 0.3s; cursor: pointer; text-decoration: none; color: var(--text); }
+    .article-card:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,0.12); }
+    .article-card-img { width: 200px; min-height: 140px; flex-shrink: 0; background: #e8f0fe; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; overflow: hidden; }
+    .article-card-img img { width: 200px; height: 100%; object-fit: cover; display: block; }
+    .article-card-body { padding: 20px; flex: 1; }
+    .article-card-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
+    .article-badge { background: #e8f0fe; color: var(--primary); font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+    .article-date { font-size: 12px; color: var(--text-light); }
+    .article-card h3 { font-family: 'FourCMaya', 'Poppins', sans-serif; font-size: 28px; color: var(--primary); margin-bottom: 8px; line-height: 1.4; }
+    .article-card p { font-family: 'FourCLaxman', 'Hind', sans-serif; font-size: 20px; color: #555; line-height: 1.7; margin-bottom: 14px; }
+    .read-more-btn { display: inline-flex; align-items: center; gap: 6px; background: var(--primary); color: white; padding: 7px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; transition: 0.3s; }
+    .read-more-btn:hover { background: var(--primary-light); }
+
+    .article-detail { display: none; background: white; border-radius: var(--radius); padding: 36px; box-shadow: var(--shadow); }
+    .article-detail.active { display: block; }
+    .back-to-list { display: inline-flex; align-items: center; gap: 6px; color: var(--primary); font-size: 14px; font-weight: 600; cursor: pointer; margin-bottom: 20px; background: #e8f0fe; padding: 8px 16px; border-radius: 8px; border: none; transition: 0.3s; }
+    .back-to-list:hover { background: var(--primary); color: white; }
+    .detail-category { display: inline-block; background: #e8f0fe; color: var(--primary); font-size: 12px; font-weight: 700; padding: 4px 14px; border-radius: 20px; margin-bottom: 14px; text-transform: uppercase; }
+    .detail-title { font-family: 'FourCMaya', 'Poppins', sans-serif; font-size: 24px; font-weight: 700; color: var(--primary); line-height: 1.4; margin-bottom: 10px; }
+    .detail-meta { display: flex; gap: 16px; font-size: 13px; color: var(--text-light); margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid var(--border); flex-wrap: wrap; }
+    .detail-featured-img { width: 100%; border-radius: 10px; margin-bottom: 8px; display: block; }
+    .detail-img-caption { font-size: 13px; color: var(--text-light); font-style: italic; text-align: center; margin-bottom: 24px; }
+    .detail-content p { font-family: 'FourCLaxman', 'Hind', sans-serif; font-size: 18px; line-height: 1.9; color: #333; margin-bottom: 18px; }
+    .detail-subheading { font-family: 'FourCMaya', 'Poppins', sans-serif; font-size: 20px; font-weight: 700; color: var(--primary); margin-top: 28px; margin-bottom: 12px; padding-left: 14px; border-left: 4px solid var(--primary-light); scroll-margin-top: 80px; }
+    .highlight-box { background: #fff8e1; border-left: 4px solid var(--accent); border-radius: 8px; padding: 14px 18px; margin: 18px 0; font-size: 14px; color: #5d4037; }
+    .toc-list { list-style: none; }
+    .toc-list li { margin-bottom: 2px; }
+    .toc-list a { display: block; padding: 7px 10px; border-radius: 6px; text-decoration: none; font-size: 13px; color: #333; transition: 0.2s; border-left: 3px solid transparent; }
+    .toc-list a:hover, .toc-list a.active { background: #e8f0fe; color: var(--primary); border-left-color: var(--primary); padding-left: 14px; }
+    .empty-state { text-align: center; padding: 40px; background: white; border-radius: var(--radius); box-shadow: var(--shadow); color: var(--text-light); }
+
+    @media (max-width: 900px) {
+      .page-container { flex-direction: column; padding: 0 14px 40px; margin: 16px auto; }
+      .article-card { flex-direction: column; }
+      .article-card-img { width: 100%; height: 180px; }
+      .article-card-img img { width: 100%; }
+      .page-header h1 { font-size: 22px; }
+      .detail-title { font-size: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="../index.html" class="nav-logo">🎓 My Teacher</a>
+    <a href="../index.html" class="nav-back-btn">← Back to Home</a>
+  </nav>
+
+  <div class="page-container">
+
+    <div class="main-content">
+      <div class="articles-list" id="articles-list">
+        <div class="empty-state">⏳ <p>Loading...</p></div>
+      </div>
+      <div class="article-detail" id="article-detail">
+        <button class="back-to-list" onclick="showList()">← वापस सूची में</button>
+        <div id="article-detail-content"></div>
+      </div>
+    </div>
+
+    <aside class="sidebar">
+      <div class="sidebar-box" id="toc-box" style="display:none;">
+        <h3>📋 इस लेख में</h3>
+        <ul class="toc-list" id="toc-list"></ul>
+      </div>
+      <div class="sidebar-box">
+        <h3>📂 Categories</h3>
+        <ul>
+          <li><a href="education-news.html">📚 Education News</a></li>
+          <li><a href="sarkari-naukri.html">🏫 Sarkari Naukri</a></li>
+          <li><a href="study-material.html">✏️ Study Material</a></li>
+          <li><a href="app-info.html">✅ Hamare App</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-box">
+        <h3>🔗 Important Links</h3>
+        <ul>
+          <li><a href="https://www.mpbse.nic.in" target="_blank">🏛️ MP Board Official</a></li>
+          <li><a href="https://www.mponline.gov.in" target="_blank">💻 MP Online Portal</a></li>
+          <li><a href="https://www.education.mp.gov.in" target="_blank">📘 MP Education Dept.</a></li>
+        </ul>
+      </div>
+    </aside>
+
+  </div>
+
+  <script>
+    let allArticles = [];
+
+    document.addEventListener('DOMContentLoaded', function() {
+      fetch('edu-news-data.json')
+        .then(res => res.json())
+        .then(data => {
+          allArticles = data;
+          buildArticleList(data);
+        })
+        .catch(() => {
+          document.getElementById('articles-list').innerHTML =
+            '<div class="empty-state">📭 <p>Abhi koi content nahi hai.</p></div>';
+        });
+    });
+
+    function buildArticleList(data) {
+      const list = document.getElementById('articles-list');
+      if (!data || data.length === 0) {
+        list.innerHTML = '<div class="empty-state">📭 <p>Abhi koi content nahi hai.</p></div>';
+        return;
+      }
+      list.innerHTML = '';
+      data.forEach((article, index) => {
+        const imageHTML = article.image
+          ? `<div class="article-card-img"><img src="${article.image}" alt="${article.title}"></div>`
+          : `<div class="article-card-img">📰</div>`;
+        list.innerHTML += `
+          <a class="article-card" onclick="showArticle(${index}); return false;" href="#">
+            ${imageHTML}
+            <div class="article-card-body">
+              <div class="article-card-meta">
+                <span class="article-badge">${article.category || 'Education News'}</span>
+                <span class="article-date">📅 ${article.date}</span>
+              </div>
+              <h3>${article.title}</h3>
+              <p>${article.desc}</p>
+              <span class="read-more-btn">पूरा पढ़ें →</span>
+            </div>
+          </a>`;
+      });
+    }
+
+    function showArticle(index) {
+      const article = allArticles[index];
+      if (!article) return;
+
+      document.getElementById('articles-list').style.display = 'none';
+      document.getElementById('article-detail').classList.add('active');
+
+      const imgHTML = article.image
+        ? `<img src="${article.image}" class="detail-featured-img" alt="${article.title}">
+           <p class="detail-img-caption">${article.imageCaption || ''}</p>`
+        : '';
+
+      let sectionsHTML = '';
+      let tocHTML = '';
+      if (article.sections && article.sections.length > 0) {
+        article.sections.forEach((section, i) => {
+          const sid = 'section-' + i;
+          sectionsHTML += `<h2 class="detail-subheading" id="${sid}">${section.heading}</h2><p>${section.content}</p>`;
+          if (section.highlight) sectionsHTML += `<div class="highlight-box">${section.highlight}</div>`;
+          tocHTML += `<li><a href="#${sid}">${section.heading}</a></li>`;
+        });
+      }
+
+      document.getElementById('article-detail-content').innerHTML = `
+        <span class="detail-category">${article.category || 'Education News'}</span>
+        <h1 class="detail-title">${article.title}</h1>
+        <div class="detail-meta"><span>📅 ${article.date}</span><span>✍️ My Teacher Team</span></div>
+        ${imgHTML}
+        <div class="detail-content"><p>${article.intro || article.desc}</p>${sectionsHTML}</div>`;
+
+      const tocBox = document.getElementById('toc-box');
+      const tocList = document.getElementById('toc-list');
+      if (tocHTML) { tocList.innerHTML = tocHTML; tocBox.style.display = 'block'; }
+      else { tocBox.style.display = 'none'; }
+
+      setTimeout(() => {
+        const sections = document.querySelectorAll('.detail-subheading');
+        const tocLinks = document.querySelectorAll('.toc-list a');
+        window.addEventListener('scroll', () => {
+          let current = '';
+          sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.id; });
+          tocLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+          });
+        });
+      }, 100);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function showList() {
+      document.getElementById('articles-list').style.display = 'flex';
+      document.getElementById('article-detail').classList.remove('active');
+      document.getElementById('toc-box').style.display = 'none';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+
+</body>
+</html>
