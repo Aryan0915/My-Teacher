@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Test — My Teacher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Hind:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1a237e;
+      --primary-light: #1565c0;
+      --accent: #f57c00;
+      --yellow: #ffeb3b;
+      --bg: #f4f6fb;
+      --white: #fff;
+      --text: #222;
+      --text-light: #666;
+      --shadow: 0 4px 16px rgba(0,0,0,0.08);
+      --radius: 12px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Hind', sans-serif; background: var(--bg); color: var(--text); }
+
+    /* NAVBAR */
+    .navbar {
+      background: var(--primary); padding: 14px 30px;
+      display: flex; align-items: center; justify-content: space-between;
+      position: sticky; top: 0; z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+    .nav-logo { color: white; font-size: 20px; font-weight: 700; text-decoration: none; font-family: 'Poppins', sans-serif; }
+    .nav-back { background: var(--yellow); color: var(--primary); padding: 8px 18px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 700; }
+
+    /* HEADER */
+    .page-header {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: white; padding: 40px 30px; text-align: center;
+    }
+    .page-header h1 { font-family: 'Poppins', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+    .page-header p { font-size: 15px; opacity: 0.85; }
+
+    /* MAIN */
+    .main { max-width: 1100px; margin: 36px auto; padding: 0 24px 60px; }
+
+    /* CATEGORY FILTER */
+    .filter-bar {
+      background: white; border-radius: var(--radius); padding: 12px 16px;
+      box-shadow: var(--shadow); margin-bottom: 28px;
+      display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+    }
+    .filter-bar span { font-weight: 600; color: var(--primary); margin-right: 6px; font-size: 14px; }
+    .flt-btn {
+      padding: 8px 18px; border: 2px solid #e0e0e0; border-radius: 8px;
+      cursor: pointer; font-family: 'Poppins', sans-serif; font-size: 13px;
+      font-weight: 600; background: white; color: var(--text); transition: 0.2s;
+    }
+    .flt-btn:hover { border-color: var(--primary); color: var(--primary); }
+    .flt-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+
+    /* CARDS GRID */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 22px;
+    }
+
+    /* EXAM CARD */
+    .exam-card {
+      background: white; border-radius: var(--radius);
+      box-shadow: var(--shadow); overflow: hidden;
+      border: 1px solid #e8e8e8; transition: 0.3s;
+    }
+    .exam-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,0,0,0.12); }
+
+    .card-top {
+      padding: 20px 20px 0;
+      display: flex; justify-content: space-between; align-items: flex-start;
+    }
+    .card-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center; font-size: 22px;
+    }
+    .card-badge {
+      font-size: 11px; font-weight: 700; padding: 4px 10px;
+      border-radius: 20px; text-transform: uppercase;
+    }
+    .badge-live { background: #e8f5e9; color: #2e7d32; }
+    .badge-coming { background: #fff3e0; color: #e65100; }
+    .badge-new { background: #e8f0fe; color: var(--primary); }
+
+    .card-body { padding: 14px 20px 20px; }
+    .card-category {
+      font-size: 11px; font-weight: 700; color: var(--primary);
+      text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px;
+    }
+    .card-title {
+      font-family: 'Poppins', sans-serif; font-size: 16px;
+      font-weight: 700; color: #1a1a2e; margin-bottom: 10px; line-height: 1.4;
+    }
+    .card-meta {
+      display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 16px;
+    }
+    .meta-pill {
+      background: var(--bg); border-radius: 20px;
+      padding: 4px 12px; font-size: 12px; color: var(--text-light); font-weight: 500;
+    }
+    .card-divider { border: none; border-top: 1px solid #f0f0f0; margin: 0 0 16px; }
+
+    .start-btn {
+      display: block; width: 100%; padding: 12px;
+      background: var(--primary); color: white; border: none;
+      border-radius: 8px; font-family: 'Poppins', sans-serif;
+      font-size: 14px; font-weight: 700; cursor: pointer;
+      transition: 0.3s; text-align: center; text-decoration: none;
+    }
+    .start-btn:hover { background: var(--primary-light); }
+    .start-btn.disabled {
+      background: #e0e0e0; color: #aaa; cursor: not-allowed;
+    }
+
+    /* EMPTY */
+    .empty-msg {
+      text-align: center; padding: 60px 20px;
+      color: var(--text-light); font-size: 16px;
+    }
+
+    /* MODAL — Candidate Info */
+    .modal-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.55); z-index: 1000;
+      align-items: center; justify-content: center;
+    }
+    .modal-overlay.show { display: flex; }
+    .modal {
+      background: white; border-radius: 16px; padding: 36px;
+      width: 90%; max-width: 480px; box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .modal h2 {
+      font-family: 'Poppins', sans-serif; font-size: 20px;
+      color: var(--primary); margin-bottom: 6px;
+    }
+    .modal p { font-size: 13px; color: var(--text-light); margin-bottom: 24px; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label {
+      display: block; font-size: 13px; font-weight: 600;
+      color: var(--text); margin-bottom: 6px;
+    }
+    .form-group input, .form-group select {
+      width: 100%; padding: 10px 14px; border: 2px solid #e0e0e0;
+      border-radius: 8px; font-size: 14px; font-family: 'Hind', sans-serif;
+      outline: none; transition: 0.2s;
+    }
+    .form-group input:focus, .form-group select:focus { border-color: var(--primary); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .modal-btns { display: flex; gap: 12px; margin-top: 24px; }
+    .btn-cancel {
+      flex: 1; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px;
+      background: white; font-size: 14px; font-weight: 600; cursor: pointer;
+      font-family: 'Poppins', sans-serif; color: var(--text);
+    }
+    .btn-start {
+      flex: 2; padding: 12px; background: var(--primary); color: white;
+      border: none; border-radius: 8px; font-size: 14px;
+      font-weight: 700; cursor: pointer; font-family: 'Poppins', sans-serif;
+    }
+    .btn-start:hover { background: var(--primary-light); }
+
+    /* Instructions box */
+    .instructions {
+      background: #fff8e1; border-radius: 8px;
+      padding: 14px 16px; margin-bottom: 20px;
+      border-left: 4px solid var(--accent);
+    }
+    .instructions p {
+      font-size: 13px; color: #555; margin-bottom: 4px;
+    }
+    .instructions p:last-child { margin-bottom: 0; }
+
+    @media (max-width: 600px) {
+      .form-row { grid-template-columns: 1fr; }
+      .modal { padding: 24px; }
+      .page-header h1 { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="../index.html" class="nav-logo">🎓 My Teacher</a>
+  <a href="../index.html" class="nav-back">← Back to Home</a>
+</nav>
+
+<div class="page-header">
+  <h1>📝 Online Test Series</h1>
+  <p>MP TET, SSC, Railway, Defence — सभी परीक्षाओं के लिए Practice Tests</p>
+</div>
+
+<div class="main">
+  <!-- Filter Bar -->
+  <div class="filter-bar">
+    <span>Filter:</span>
+    <button class="flt-btn active" onclick="filterCategory('all', this)">📋 All Tests</button>
+    <!-- Dynamically add karo from JSON -->
+  </div>
+
+  <!-- Cards Grid -->
+  <div class="cards-grid" id="cards-container">
+    <div class="empty-msg">⏳ Loading tests...</div>
+  </div>
+</div>
+
+<!-- Candidate Info Modal -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <h2>📋 Test शुरू करें</h2>
+    <p id="modal-test-name" style="color:#1a237e; font-weight:600; font-size:15px; margin-bottom:16px;"></p>
+
+    <div class="instructions">
+      <p>⏱ <strong>Timer:</strong> Test शुरू होने के बाद timer चलना शुरू होगा।</p>
+      <p>⚠️ <strong>Note:</strong> एक बार शुरू करने के बाद वापस नहीं जा सकते।</p>
+      <p>📱 <strong>Device:</strong> Full screen में दें test के लिए।</p>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>पूरा नाम *</label>
+        <input type="text" id="cand-name" placeholder="Aapka poora naam">
+      </div>
+      <div class="form-group">
+        <label>मोबाइल नंबर *</label>
+        <input type="tel" id="cand-mobile" placeholder="10 digit number">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Email (Optional)</label>
+        <input type="email" id="cand-email" placeholder="email@example.com">
+      </div>
+      <div class="form-group">
+        <label>शहर / जिला *</label>
+        <input type="text" id="cand-city" placeholder="Aapka sheher">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Preparation Level</label>
+      <select id="cand-level">
+        <option value="beginner">Beginner — अभी शुरू किया है</option>
+        <option value="intermediate" selected>Intermediate — कुछ तैयारी है</option>
+        <option value="advanced">Advanced — अच्छी तैयारी है</option>
+      </select>
+    </div>
+
+    <div class="modal-btns">
+      <button class="btn-cancel" onclick="closeModal()">✕ Cancel</button>
+      <button class="btn-start" onclick="startTest()">🚀 Test शुरू करें</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  let allTests = [];
+  let selectedTest = null;
+
+  // JSON load karo
+  fetch('test-exam.json')
+    .then(r => r.json())
+    .then(data => {
+      allTests = data.tests || data;
+      buildFilterButtons();
+      renderCards(allTests);
+    })
+    .catch(() => {
+      document.getElementById('cards-container').innerHTML =
+        '<div class="empty-msg">⚠️ Tests load nahi ho sake. test-exam.json check karein.</div>';
+    });
+
+  function buildFilterButtons() {
+    const categories = [...new Set(allTests.map(t => t.category).filter(Boolean))];
+    const bar = document.querySelector('.filter-bar');
+    const icons = { ssc: '📘', railway: '🚂', defence: '⭐', mptet: '📚', gk: '🌍' };
+    categories.forEach(cat => {
+      bar.innerHTML += `<button class="flt-btn" onclick="filterCategory('${cat}', this)">
+        ${icons[cat] || '📋'} ${cat.toUpperCase()}
+      </button>`;
+    });
+  }
+
+  function filterCategory(cat, btn) {
+    document.querySelectorAll('.flt-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filtered = cat === 'all' ? allTests : allTests.filter(t => t.category === cat);
+    renderCards(filtered);
+  }
+
+  function renderCards(tests) {
+    const container = document.getElementById('cards-container');
+    if (!tests.length) {
+      container.innerHTML = '<div class="empty-msg">📭 Koi test nahi mila.</div>';
+      return;
+    }
+    const iconBgs = { ssc: '#e3f2fd', railway: '#fce4ec', defence: '#e8f5e9', mptet: '#e8f0fe' };
+    container.innerHTML = '';
+    tests.forEach(test => {
+      const isLive = test.status === 'live' || test.status === 'ready';
+      const isNew  = test.status === 'new';
+      const badge  = isNew ? '<span class="card-badge badge-new">🆕 New</span>'
+                   : isLive ? '<span class="card-badge badge-live">✅ Live</span>'
+                   : '<span class="card-badge badge-coming">⏳ Coming Soon</span>';
+      const btn = (isLive || isNew)
+        ? `<button class="start-btn" onclick="openModal('${test.id}')">🚀 Test Start करें</button>`
+        : `<button class="start-btn disabled" disabled>⏳ Coming Soon</button>`;
+
+      container.innerHTML += `
+        <div class="exam-card">
+          <div class="card-top">
+            <div class="card-icon" style="background:${test.iconBg || iconBgs[test.category] || '#f4f6fb'}">
+              ${test.icon || '📝'}
+            </div>
+            ${badge}
+          </div>
+          <div class="card-body">
+            <div class="card-category">${(test.category || '').toUpperCase()} • ${test.subject || ''}</div>
+            <div class="card-title">${test.title}</div>
+            <div class="card-meta">
+              <span class="meta-pill">❓ ${test.questions} Questions</span>
+              <span class="meta-pill">⏱ ${test.time}</span>
+              <span class="meta-pill">📊 ${test.level}</span>
+              <span class="meta-pill">🎯 ${test.marks || test.questions} Marks</span>
+            </div>
+            <hr class="card-divider">
+            ${btn}
+          </div>
+        </div>`;
+    });
+  }
+
+  function openModal(testId) {
+    selectedTest = allTests.find(t => t.id === testId);
+    if (!selectedTest) return;
+    document.getElementById('modal-test-name').innerText = '📝 ' + selectedTest.title;
+    document.getElementById('modal').classList.add('show');
+  }
+
+  function closeModal() {
+    document.getElementById('modal').classList.remove('show');
+    selectedTest = null;
+  }
+
+  function startTest() {
+    const name   = document.getElementById('cand-name').value.trim();
+    const mobile = document.getElementById('cand-mobile').value.trim();
+    const city   = document.getElementById('cand-city').value.trim();
+    const email  = document.getElementById('cand-email').value.trim();
+    const level  = document.getElementById('cand-level').value;
+
+    if (!name)   { alert('कृपया अपना नाम भरें।'); return; }
+    if (!mobile || mobile.length !== 10 || isNaN(mobile)) {
+      alert('कृपया सही 10 अंकों का मोबाइल नंबर भरें।'); return;
+    }
+    if (!city) { alert('कृपया शहर/जिला भरें।'); return; }
+
+    // Candidate info save karo session storage mein
+    const candidate = { name, mobile, email, city, level };
+    sessionStorage.setItem('candidate', JSON.stringify(candidate));
+    sessionStorage.setItem('testId', selectedTest.id);
+
+    // Test page par bhejo
+    window.location.href = `exam-test.html?id=${selectedTest.id}`;
+  }
+
+  // Modal close on overlay click
+  document.getElementById('modal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+</script>
+
+</body>
+</html>

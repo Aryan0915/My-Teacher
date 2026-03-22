@@ -5,20 +5,20 @@
 // ===== 1. TICKER DATA — Roz yahan se update karo =====
 const tickerItems = [
   {
-    text: "MP Board Result 2026 जल्द आएगा",
-    link: "about-us/education-news.html"
+    text: "करंट अफेयर्स का सेक्शन बन गया अभी चेक करें स्टडी मटेरियल में",
+    
   },
   {
-    text: "MP Teacher Vacancy 2026 — 5000 पद",
-    link: "about-us/sarkari-naukri.html"
+    text: "स्टडी मटेरियल मे सभी विषयों पर काम जारी है अगले कुछ दिनों मे नया content देखने को मिलेगा",
+    
   },
   {
-    text: "नई शिक्षा नीति 2026 — पूरी जानकारी",
-    link: "about-us/education-news.html"
+    text: "अब आपके लिए नए टेस्ट, जिसमे रोचक प्रश्न, अपनी अंकसूची के साथ, सभी प्रश्नों का विश्लेषण भी",
+    
   },
   {
-    text: "हमारे शिक्षक एप — अभी डाउनलोड करें",
-    link: "about-us/app-info.html"
+    text: "नए टेस्ट सीरीज, जाओ देखो, प्रश्नों का analysis भी साथ में",
+    
   }
 ];
 
@@ -26,16 +26,16 @@ const tickerItems = [
 const noticeData = {
   items: [
     {
-      heading: "मप्र वन आरक्षक व जेल प्रहरी",
-      text: "आवेदन देने की तारीख बढ़ी"
+      heading: "करंट अफेयर्स की सूचना",
+      text: "study material के current section में देखें"
     },
     {
-      heading: "जल्द मिलेगा साहित्य विभाग",
-      text: "वेबसाइट मे जल्द जुड़ेगा साहित्य एवं दर्शन विभाग"
+      heading: "टेस्ट exam का नया इंतजाम",
+      text: "सभी प्रमुख परीक्षाओ के मुफ़्त टेस्ट"
     },
     {
       heading: "अध्ययन सामग्री",
-      text: "सभी विषयों के नोट्स व टेस्ट सीरीज जल्द ही"
+      text: "नए नोट्स Study Material में उपलब्ध"
     }
   ],
   date: "14 March 2026" 

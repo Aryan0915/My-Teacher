@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Result — My Teacher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Hind:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1a237e; --primary-light: #1565c0;
+      --green: #2e7d32; --red: #c62828; --orange: #e65100;
+      --bg: #f4f6fb;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Hind', sans-serif; background: var(--bg); color: #222; }
+
+    /* NAVBAR */
+    .navbar {
+      background: var(--primary); padding: 14px 28px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { color: white; font-size: 18px; font-weight: 700; text-decoration: none; font-family: 'Poppins', sans-serif; }
+    .nav-btn { background: #ffeb3b; color: var(--primary); padding: 8px 16px; border-radius: 8px; text-decoration: none; font-size: 13px; font-weight: 700; }
+
+    .main { max-width: 900px; margin: 30px auto; padding: 0 16px 60px; }
+
+    /* RESULT CARD */
+    .result-hero {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      border-radius: 16px; padding: 36px; color: white;
+      text-align: center; margin-bottom: 24px;
+      box-shadow: 0 8px 30px rgba(26,35,126,0.3);
+    }
+    .result-hero h1 { font-family: 'Poppins', sans-serif; font-size: 24px; margin-bottom: 6px; }
+    .candidate-name { font-size: 16px; opacity: 0.85; margin-bottom: 28px; }
+
+    .score-circle {
+      width: 130px; height: 130px; border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      border: 4px solid rgba(255,255,255,0.5);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      margin: 0 auto 24px;
+    }
+    .score-pct { font-family: 'Poppins', sans-serif; font-size: 32px; font-weight: 700; line-height: 1; }
+    .score-lbl { font-size: 13px; opacity: 0.8; }
+
+    .result-grade {
+      display: inline-block; padding: 6px 20px;
+      border-radius: 20px; font-weight: 700; font-size: 15px;
+      background: rgba(255,255,255,0.2); margin-bottom: 4px;
+    }
+
+    /* STATS ROW */
+    .stats-row {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 14px; margin-bottom: 24px;
+    }
+    .stat-card {
+      background: white; border-radius: 12px; padding: 20px;
+      text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    }
+    .stat-card .num {
+      font-family: 'Poppins', sans-serif; font-size: 28px;
+      font-weight: 700; margin-bottom: 4px;
+    }
+    .stat-card .lbl { font-size: 12px; color: #888; }
+    .num-correct { color: var(--green); }
+    .num-wrong   { color: var(--red); }
+    .num-skip    { color: var(--orange); }
+    .num-marks   { color: var(--primary); }
+
+    /* INFO ROW */
+    .info-row {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 14px; margin-bottom: 24px;
+    }
+    .info-card {
+      background: white; border-radius: 12px; padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    }
+    .info-card h3 {
+      font-family: 'Poppins', sans-serif; font-size: 14px;
+      font-weight: 700; color: var(--primary); margin-bottom: 14px;
+      padding-bottom: 8px; border-bottom: 2px solid #e8f0fe;
+    }
+    .info-row-item {
+      display: flex; justify-content: space-between;
+      font-size: 13px; padding: 6px 0;
+      border-bottom: 1px solid #f5f5f5; color: #444;
+    }
+    .info-row-item:last-child { border-bottom: none; }
+    .info-row-item strong { color: #222; }
+
+    /* ANSWER SHEET */
+    .answer-sheet {
+      background: white; border-radius: 12px;
+      padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    }
+    .answer-sheet h2 {
+      font-family: 'Poppins', sans-serif; font-size: 18px;
+      color: var(--primary); margin-bottom: 6px;
+    }
+    .answer-sheet p { font-size: 13px; color: #888; margin-bottom: 20px; }
+
+    /* Filter tabs */
+    .sheet-filter {
+      display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap;
+    }
+    .sf-btn {
+      padding: 7px 16px; border-radius: 8px; border: 2px solid #e0e0e0;
+      background: white; font-size: 13px; font-weight: 600; cursor: pointer;
+      font-family: 'Poppins', sans-serif; transition: 0.2s;
+    }
+    .sf-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+
+    .q-item {
+      border: 2px solid #e8e8e8; border-radius: 10px;
+      padding: 18px; margin-bottom: 14px; transition: 0.2s;
+    }
+    .q-item.correct  { border-color: #a5d6a7; background: #f1f8e9; }
+    .q-item.wrong    { border-color: #ef9a9a; background: #fce4e4; }
+    .q-item.skipped  { border-color: #ffe082; background: #fffde7; }
+
+    .q-item-top {
+      display: flex; justify-content: space-between;
+      align-items: center; margin-bottom: 12px;
+    }
+    .q-num-badge {
+      font-size: 12px; font-weight: 700; padding: 3px 10px;
+      border-radius: 20px; background: var(--bg); color: var(--primary);
+    }
+    .q-status-badge {
+      font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 20px;
+    }
+    .badge-correct { background: #e8f5e9; color: var(--green); }
+    .badge-wrong   { background: #ffebee; color: var(--red); }
+    .badge-skip    { background: #fff8e1; color: var(--orange); }
+
+    .q-question-text {
+      font-family: 'Poppins', sans-serif; font-size: 14px;
+      font-weight: 600; color: #1a1a2e; margin-bottom: 14px; line-height: 1.5;
+    }
+    .options-review { display: flex; flex-direction: column; gap: 8px; }
+    .opt-row {
+      display: flex; align-items: center; gap: 10px;
+      padding: 9px 14px; border-radius: 8px; font-size: 13px;
+      border: 2px solid transparent;
+    }
+    .opt-row.correct-ans { background: #e8f5e9; border-color: var(--green); }
+    .opt-row.wrong-ans   { background: #ffebee; border-color: var(--red); }
+    .opt-row .opt-lbl {
+      width: 26px; height: 26px; border-radius: 50%; background: #e0e0e0;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 12px; flex-shrink: 0;
+    }
+    .opt-row.correct-ans .opt-lbl { background: var(--green); color: white; }
+    .opt-row.wrong-ans   .opt-lbl { background: var(--red);   color: white; }
+
+    .marks-note {
+      font-size: 12px; margin-top: 10px; padding: 6px 12px;
+      border-radius: 6px; font-weight: 600;
+    }
+    .marks-note.pos { background: #e8f5e9; color: var(--green); }
+    .marks-note.neg { background: #ffebee; color: var(--red); }
+    .marks-note.neu { background: #f4f6fb; color: #888; }
+
+    /* ACTION BUTTONS */
+    .action-btns {
+      display: flex; gap: 12px; margin: 24px 0; flex-wrap: wrap;
+    }
+    .btn-action {
+      padding: 12px 24px; border-radius: 8px; border: none;
+      font-family: 'Poppins', sans-serif; font-size: 14px;
+      font-weight: 700; cursor: pointer; text-decoration: none;
+      display: inline-block; transition: 0.2s;
+    }
+    .btn-home  { background: var(--primary); color: white; }
+    .btn-retry { background: white; color: var(--primary); border: 2px solid var(--primary); }
+    .btn-print { background: #f4f6fb; color: #444; border: 2px solid #e0e0e0; }
+    .btn-home:hover  { background: var(--primary-light); }
+    .btn-retry:hover { background: #e8f0fe; }
+
+    @media (max-width: 700px) {
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+      .info-row  { grid-template-columns: 1fr; }
+    }
+    @media print {
+      .navbar, .action-btns, .sheet-filter, .nav-btn { display: none; }
+      body { background: white; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="../index.html" class="nav-logo">🎓 My Teacher</a>
+  <a href="text-exam.html" class="nav-btn">📝 More Tests</a>
+</nav>
+
+<div class="main" id="result-main">
+  <div style="text-align:center;padding:60px;color:#888;">⏳ Result calculate ho raha hai...</div>
+</div>
+
+<script>
+  const raw = sessionStorage.getItem('resultData');
+  if (!raw) {
+    document.getElementById('result-main').innerHTML =
+      '<div style="text-align:center;padding:60px;"><h2>No result found.</h2><a href="text-exam.html">Go to Tests</a></div>';
+  } else {
+    const rd       = JSON.parse(raw);
+    const qs       = rd.questions || [];
+    const answers  = rd.answers  || {};
+    const cand     = rd.candidate || {};
+    const negMark  = rd.negativeMark || 0;
+    const totalQ   = qs.length;
+    const perQ     = (rd.marks || totalQ) / totalQ;
+
+    // Calculate results
+    let correct = 0, wrong = 0, skipped = 0;
+    let marksObtained = 0;
+
+    qs.forEach((q, i) => {
+      if (answers[i] === undefined) {
+        skipped++;
+      } else if (answers[i] === q.correct) {
+        correct++;
+        marksObtained += perQ;
+      } else {
+        wrong++;
+        marksObtained -= negMark * perQ;
+      }
+    });
+
+    const totalMarks = rd.marks || totalQ;
+    marksObtained = Math.max(0, Math.round(marksObtained * 100) / 100);
+    const pct = Math.round((marksObtained / totalMarks) * 100);
+
+    // Grade
+    const grade = pct >= 90 ? 'Outstanding 🏆'
+                : pct >= 75 ? 'Excellent ⭐'
+                : pct >= 60 ? 'Good 👍'
+                : pct >= 40 ? 'Average 📚'
+                : 'Needs Practice 💪';
+
+    // Time format
+    const taken = rd.timeTaken || 0;
+    const tMin  = Math.floor(taken / 60);
+    const tSec  = taken % 60;
+    const total = rd.totalTime || 3600;
+    const tMin2 = Math.floor(total / 60);
+
+    // Format time for display
+    function fmtTime(s) {
+      return Math.floor(s/60) + 'm ' + (s%60) + 's';
+    }
+
+    // Accuracy
+    const attempted = correct + wrong;
+    const accuracy  = attempted > 0 ? Math.round((correct / attempted) * 100) : 0;
+
+    let allItems = qs.map((q, i) => {
+      const userAns = answers[i];
+      const status  = userAns === undefined ? 'skipped'
+                    : userAns === q.correct ? 'correct' : 'wrong';
+      return { q, i, userAns, status, correct: q.correct };
+    });
+
+    let currentFilter = 'all';
+
+    function renderResult() {
+      document.getElementById('result-main').innerHTML = `
+
+        <!-- HERO -->
+        <div class="result-hero">
+          <h1>🎯 ${rd.testTitle}</h1>
+          <div class="candidate-name">👤 ${cand.name || ''} • 📱 ${cand.mobile || ''} • 🏙️ ${cand.city || ''}</div>
+          <div class="score-circle">
+            <div class="score-pct">${pct}%</div>
+            <div class="score-lbl">Score</div>
+          </div>
+          <div class="result-grade">${grade}</div>
+        </div>
+
+        <!-- STATS -->
+        <div class="stats-row">
+          <div class="stat-card">
+            <div class="num num-correct">${correct}</div>
+            <div class="lbl">✅ Correct</div>
+          </div>
+          <div class="stat-card">
+            <div class="num num-wrong">${wrong}</div>
+            <div class="lbl">❌ Wrong</div>
+          </div>
+          <div class="stat-card">
+            <div class="num num-skip">${skipped}</div>
+            <div class="lbl">⭕ Skipped</div>
+          </div>
+          <div class="stat-card">
+            <div class="num num-marks">${marksObtained}/${totalMarks}</div>
+            <div class="lbl">🎯 Marks</div>
+          </div>
+        </div>
+
+        <!-- INFO -->
+        <div class="info-row">
+          <div class="info-card">
+            <h3>📊 Performance Details</h3>
+            <div class="info-row-item"><span>Total Questions</span><strong>${totalQ}</strong></div>
+            <div class="info-row-item"><span>Attempted</span><strong>${attempted}</strong></div>
+            <div class="info-row-item"><span>Accuracy</span><strong>${accuracy}%</strong></div>
+            <div class="info-row-item"><span>Marks Obtained</span><strong>${marksObtained} / ${totalMarks}</strong></div>
+            ${negMark > 0 ? `<div class="info-row-item"><span>Negative Marking</span><strong>-${negMark} per wrong</strong></div>` : ''}
+            <div class="info-row-item"><span>Percentage</span><strong>${pct}%</strong></div>
+          </div>
+          <div class="info-card">
+            <h3>👤 Candidate Details</h3>
+            <div class="info-row-item"><span>Name</span><strong>${cand.name || '-'}</strong></div>
+            <div class="info-row-item"><span>Mobile</span><strong>${cand.mobile || '-'}</strong></div>
+            <div class="info-row-item"><span>City</span><strong>${cand.city || '-'}</strong></div>
+            <div class="info-row-item"><span>Level</span><strong>${cand.level || '-'}</strong></div>
+            <div class="info-row-item"><span>Time Taken</span><strong>${fmtTime(taken)} / ${tMin2}m</strong></div>
+            <div class="info-row-item"><span>Test Date</span><strong>${new Date().toLocaleDateString('hi-IN')}</strong></div>
+          </div>
+        </div>
+
+        <!-- ACTION BUTTONS -->
+        <div class="action-btns">
+          <a href="text-exam.html" class="btn-action btn-home">📝 More Tests</a>
+          <a href="text-exam.html" class="btn-action btn-retry" onclick="sessionStorage.removeItem('resultData')">🔄 Retry Test</a>
+          <button class="btn-action btn-print" onclick="window.print()">🖨️ Print Result</button>
+        </div>
+
+        <!-- ANSWER SHEET -->
+        <div class="answer-sheet">
+          <h2>📋 Detailed Answer Sheet</h2>
+          <p>Har question ka sahi answer aur aapka answer neeche diya hai.</p>
+
+          <div class="sheet-filter">
+            <button class="sf-btn active" onclick="filterSheet('all', this)">📋 All (${totalQ})</button>
+            <button class="sf-btn" onclick="filterSheet('correct', this)">✅ Correct (${correct})</button>
+            <button class="sf-btn" onclick="filterSheet('wrong', this)">❌ Wrong (${wrong})</button>
+            <button class="sf-btn" onclick="filterSheet('skipped', this)">⭕ Skipped (${skipped})</button>
+          </div>
+
+          <div id="answer-list"></div>
+        </div>
+      `;
+      renderAnswerList('all');
+    }
+
+    function renderAnswerList(filter) {
+      currentFilter = filter;
+      const list = allItems.filter(item => filter === 'all' || item.status === filter);
+      const labels = ['A','B','C','D','E'];
+      let html = '';
+
+      list.forEach(({ q, i, userAns, status, correct: correctIdx }) => {
+        const statusLabel = status === 'correct'
+          ? '<span class="q-status-badge badge-correct">✅ Correct</span>'
+          : status === 'wrong'
+          ? '<span class="q-status-badge badge-wrong">❌ Wrong</span>'
+          : '<span class="q-status-badge badge-skip">⭕ Skipped</span>';
+
+        const marksNote = status === 'correct'
+          ? `<div class="marks-note pos">+${perQ} marks</div>`
+          : status === 'wrong' && negMark > 0
+          ? `<div class="marks-note neg">-${negMark * perQ} marks (Negative)</div>`
+          : `<div class="marks-note neu">0 marks</div>`;
+
+        const opts = (q.options || []).map((opt, oi) => {
+          const isCorrect = oi === correctIdx;
+          const isUser    = oi === userAns;
+          let cls = '';
+          if (isCorrect) cls = 'correct-ans';
+          else if (isUser && !isCorrect) cls = 'wrong-ans';
+          const icon = isCorrect ? ' ✅' : (isUser && !isCorrect) ? ' ❌' : '';
+          return `<div class="opt-row ${cls}">
+            <div class="opt-lbl">${labels[oi]}</div>
+            <div>${opt}${icon}</div>
+          </div>`;
+        }).join('');
+
+        html += `
+          <div class="q-item ${status}">
+            <div class="q-item-top">
+              <span class="q-num-badge">Q${i + 1}</span>
+              ${statusLabel}
+            </div>
+            <div class="q-question-text">${q.question}</div>
+            <div class="options-review">${opts}</div>
+            ${marksNote}
+          </div>`;
+      });
+
+      document.getElementById('answer-list').innerHTML = html ||
+        '<div style="text-align:center;padding:30px;color:#aaa;">Koi question nahi mila.</div>';
+    }
+
+    window.filterSheet = function(filter, btn) {
+      document.querySelectorAll('.sf-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderAnswerList(filter);
+    };
+
+    renderResult();
+  }
+</script>
+
+</body>
+</html>

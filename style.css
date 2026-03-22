@@ -354,7 +354,7 @@ body {
   display: inline-flex;
   align-items: center;
   white-space: nowrap;
-  animation: ticker-move 30s linear infinite;
+  animation: ticker-move 40s linear infinite;
 }
 
 .ticker-content:hover {

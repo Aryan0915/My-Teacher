@@ -17,20 +17,20 @@
 // ============================================================
 const tickerItems = [
   {
-    text: "MP Board Result 2026 जल्द आएगा",
-    link: "about-us/education-news.html"
+    text: "करंट अफेयर्स का सेक्शन बन गया अभी चेक करें स्टडी मटेरियल में",
+    
   },
   {
-    text: "MP Teacher Vacancy 2026 — 5000 पद",
-    link: "about-us/sarkari-naukri.html"
+    text: "स्टडी मटेरियल मे सभी विषयों पर काम जारी है अगले कुछ दिनों मे नया content देखने को मिलेगा",
+    
   },
   {
-    text: "नई शिक्षा नीति 2026 — पूरी जानकारी",
-    link: "about-us/education-news.html"
+    text: "अब आपके लिए नए टेस्ट, जिसमे रोचक प्रश्न, अपनी अंकसूची के साथ, सभी प्रश्नों का विश्लेषण भी",
+    
   },
   {
-    text: "हमारे शिक्षक एप — अभी डाउनलोड करें",
-    link: "about-us/app-info.html"
+    text: "साहित्य में मिलेगा पुरानी किताबों का संगम, जिसमे क्लासिक साहित्य का होगा जमावड़ा",
+    
   }
 ];
 
@@ -40,15 +40,15 @@ const tickerItems = [
 // Date aur 3 items update karo daily
 // ============================================================
 const noticeData = {
-  date: "13 March 2026",
+  date: "23 March 2026",
   items: [
     {
-      heading: "परीक्षा सूचना",
-      text: "MP TET 2026 का परिणाम अप्रैल में आएगा"
+      heading: "करंट अफेयर्स की सूचना",
+      text: "study material के current section में देखें"
     },
     {
-      heading: "भर्ती",
-      text: "MP Teacher Vacancy — अंतिम तिथि 31 March"
+      heading: "टेस्ट exam का नया इंतजाम",
+      text: "सभी प्रमुख परीक्षाओ के मुफ़्त टेस्ट"
     },
     {
       heading: "अध्ययन सामग्री",
@@ -74,52 +74,6 @@ const homeNewsData = [
   }
 ];
 
-
-// ============================================================
-// 4. EDUCATION NEWS — about-us/education-news.html
-// Nai khabar add karo — card + full article dono automatic!
-// ============================================================
-const eduNewsData = [
-  {
-    "id": "edu1",
-    "date": "12 March 2026",
-    "title": "MP Board Result 2026 — मई में आएगा परिणाम",
-    "desc": "मध्यप्रदेश बोर्ड ने 10वीं और 12वीं के परिणाम की तिथि घोषित की।",
-    "category": "Education News",
-    "image": "images/mp-board-result.jpg",
-    "imageCaption": "MP Board परीक्षा परिणाम 2026",
-    "intro": "मध्यप्रदेश माध्यमिक शिक्षा मण्डल ने वर्ष 2026 की बोर्ड परीक्षाओं के परिणाम की तिथि की घोषणा कर दी है।",
-    "sections": [
-      {
-        "heading": "परिणाम कब आएगा",
-        "content": "MP Board का परिणाम मई 2026 के दूसरे सप्ताह में जारी किया जाएगा।",
-        "highlight": "महत्वपूर्ण: परिणाम केवल mpbse.nic.in पर देखा जा सकेगा।"
-      },
-      {
-        "heading": "परिणाम कैसे देखें",
-        "content": "आधिकारिक वेबसाइट पर जाएं, अपना रोल नंबर और जन्मतिथि दर्ज करें।",
-        "highlight": ""
-      }
-    ]
-  }
-];
-
-
-// ============================================================
-// 5. SARKARI NAUKRI — about-us/sarkari-naukri.html
-// Nai vacancy add karo
-// ============================================================
-const naukariData = [
-  {
-    "id": "naukri1",
-    "date": "10 March 2026",
-    "title": "MP Teacher Vacancy 2026 — 5000 पद",
-    "desc": "MP School Shiksha Vibhag ne 5000 pado par bharti ke liye notification jaari ki hai.",
-    "image": "",
-    "link": "sarkari-naukri/job1.html",
-    "category": "Sarkari Naukri"
-  }
-];
 
 
 // ============================================================
