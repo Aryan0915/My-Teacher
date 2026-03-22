@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sahitya Darshan — My Teacher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Hind:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="about-us.css">
+  <style>
+    .page-header {
+      background: linear-gradient(135deg, #1a237e, #1565c0);
+      color: white; padding: 40px 30px; text-align: center;
+    }
+    .page-header h1 {
+      font-family: 'Poppins', sans-serif; font-size: 28px;
+      font-weight: 700; margin-bottom: 8px;
+    }
+    .page-header p { font-size: 15px; opacity: 0.85; }
+    .main-content { flex: 3; }
+    .author-filter {
+      background: white; border-radius: 12px; padding: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      margin-bottom: 24px; display: flex; flex-wrap: wrap; gap: 8px;
+    }
+    .author-btn {
+      padding: 8px 16px; border: none; border-radius: 8px;
+      cursor: pointer; font-family: 'Poppins', sans-serif;
+      font-size: 13px; font-weight: 600;
+      background: #f4f6fb; color: #222; transition: 0.25s;
+    }
+    .author-btn:hover { background: #e8f0fe; color: #1a237e; }
+    .author-btn.active { background: #1a237e; color: white; }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 18px;
+    }
+    .material-card {
+      background: white; border-radius: 12px; overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      transition: 0.3s; border: 1px solid #e0e0e0;
+    }
+    .material-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.12);
+    }
+    .card-body { padding: 18px; }
+    .card-meta {
+      display: flex; align-items: center;
+      gap: 8px; margin-bottom: 10px; flex-wrap: wrap;
+    }
+    .card-author {
+      display: inline-block; background: #e8f0fe;
+      color: #1a237e; font-size: 11px; font-weight: 700;
+      padding: 3px 10px; border-radius: 20px;
+    }
+    .card-date { font-size: 12px; color: #666; }
+    .material-card h3 {
+      font-family: 'Poppins', sans-serif; font-size: 15px;
+      color: #1a237e; margin-bottom: 8px; line-height: 1.4;
+    }
+    .material-card p {
+      font-size: 13px; color: #555;
+      line-height: 1.6; margin-bottom: 14px;
+    }
+    .btn-read {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: #f4f6fb; color: #1a237e; padding: 8px 16px;
+      border-radius: 8px; text-decoration: none; font-size: 13px;
+      font-weight: 600; border: 1px solid #c5cae9; transition: 0.3s;
+    }
+    .btn-read:hover { background: #e8f0fe; }
+    .empty-state {
+      text-align: center; padding: 40px; color: #aaa;
+      background: white; border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    }
+    @media (max-width: 900px) {
+      .page-container { flex-direction: column; }
+      .sidebar { order: -1; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="news-navbar">
+    <a href="../index.html" class="nav-logo">🎓 My Teacher</a>
+    <a href="../index.html" class="nav-back-btn">← Back to Home</a>
+  </nav>
+
+  <div class="page-header">
+    <h1>📖 साहित्य एवं दर्शन</h1>
+    <p>स्वागत है साहित्य की दुनिया में — यहाँ मिलेंगे प्रसिद्ध लेखक, उपन्यास और दर्शन</p>
+  </div>
+
+  <div class="page-container">
+    <div class="main-content">
+
+      <!-- Author filter buttons — automatically ban jaate hain JSON se -->
+      <div class="author-filter" id="author-filter">
+        <button class="author-btn active" onclick="filterAuthor('all', this)">📚 Sabhi</button>
+      </div>
+
+      <div class="cards-grid" id="sahitya-container">
+        <div class="empty-state">⏳ Loading...</div>
+      </div>
+
+    </div>
+
+    <aside class="sidebar">
+      <div class="sidebar-box">
+        <h3>📚 Study Material</h3>
+        <ul>
+          <li><a href="study-material.html?tab=maths">🔢 Maths</a></li>
+          <li><a href="study-material.html?tab=gk">🌍 General Knowledge</a></li>
+          <li><a href="study-material.html?tab=science">🔬 Science</a></li>
+          <li><a href="study-material.html?tab=reasoning">🧠 Reasoning</a></li>
+          <li><a href="study-material.html?tab=current">📰 Current Affairs</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-box">
+        <h3>📂 Categories</h3>
+        <ul>
+          <li><a href="study-material.html">✏️ Study Material</a></li>
+          <li><a href="app-info.html">✅ Hamare App</a></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  <script>
+    let allData = [];
+
+    function filterAuthor(author, btn) {
+      document.querySelectorAll('.author-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filtered = author === 'all'
+        ? allData
+        : allData.filter(i => i.author === author);
+      buildCards(filtered);
+    }
+
+    function buildCards(data) {
+      const container = document.getElementById('sahitya-container');
+      if (!data.length) {
+        container.innerHTML = '<div class="empty-state">📭 Koi content nahi mila.</div>';
+        return;
+      }
+      container.innerHTML = '';
+      data.forEach(item => {
+        container.innerHTML += `
+          <div class="material-card">
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-author">✍️ ${item.author || 'Unknown'}</span>
+                <span class="card-date">📅 ${item.date}</span>
+              </div>
+              <h3>${item.title}</h3>
+              <p>${item.desc}</p>
+              <a href="Article.html?subject=sahitya&id=${item.id}" class="btn-read">📖 Read More</a>
+            </div>
+          </div>`;
+      });
+    }
+
+    // sahitya-darshan.json se data load karo
+    fetch('sahitya-darshan.json')
+      .then(r => r.json())
+      .then(data => {
+        allData = data;
+
+        // Author filter buttons dynamically banao
+        const authors = [...new Set(data.map(i => i.author).filter(Boolean))];
+        const filterDiv = document.getElementById('author-filter');
+        authors.forEach(author => {
+          filterDiv.innerHTML +=
+            `<button class="author-btn" onclick="filterAuthor('${author}', this)">✍️ ${author}</button>`;
+        });
+
+        buildCards(data);
+      })
+      .catch(() => {
+        document.getElementById('sahitya-container').innerHTML =
+          '<div class="empty-state">⚠️ Data load nahi ho saka. sahitya-darshan.json check karein.</div>';
+      });
+  </script>
+
+</body>
+</html>

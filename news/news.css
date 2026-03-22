@@ -97,22 +97,22 @@ body {
 }
 
 /* Image wrapper */
-.article-image-wrap {
-  margin-bottom: 24px;
+.article-image img{
+width:100%;
+max-width:750px;
+height:auto;
+border-radius:10px;
+display:block;
+margin:20px auto;
 }
 
-.article-image {
-  width: 100%;
-  border-radius: 10px;
-  display: block;
+.image-caption{
+text-align:center;
+font-size:14px;
+color:#666;
+margin-top:6px;
 }
 
-.image-caption {
-  font-size: 13px;
-  color: #888;
-  margin-top: 8px;
-  font-style: italic;
-}
 
 /* Article paragraphs */
 .article-content p {

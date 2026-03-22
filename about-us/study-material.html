@@ -98,14 +98,14 @@
     <div class="main-content">
 
       <div class="tabs-wrapper">
-        <button class="tab-btn active" onclick="showSubject('maths', this)">🔢 Maths</button>
-        <button class="tab-btn" onclick="showSubject('gk', this)">🌍 General Knowledge</button>
-        <button class="tab-btn" onclick="showSubject('science', this)">🔬 Science</button>
-        <button class="tab-btn" onclick="showSubject('reasoning', this)">🧠 Reasoning</button>
-        <button class="tab-btn" onclick="showSubject('current', this)">📰 Current Affairs</button>
+        <button class="tab-btn" id="tab-maths" onclick="showSubject('maths', this)">🔢 Maths</button>
+        <button class="tab-btn" id="tab-gk" onclick="showSubject('gk', this)">🌍 General Knowledge</button>
+        <button class="tab-btn" id="tab-science" onclick="showSubject('science', this)">🔬 Science</button>
+        <button class="tab-btn" id="tab-reasoning" onclick="showSubject('reasoning', this)">🧠 Reasoning</button>
+        <button class="tab-btn" id="tab-current" onclick="showSubject('current', this)">📰 Current Affairs</button>
       </div>
 
-      <div class="subject-section active" id="section-maths">
+      <div class="subject-section" id="section-maths">
         <div class="section-header"><div class="section-icon">🔢</div><div><h2>Mathematics — गणित</h2><p>MP TET के लिए गणित के नोट्स, PDF और अभ्यास सामग्री</p></div></div>
         <div class="cards-grid" id="maths-container"><div class="empty-state">⏳ <p>Loading...</p></div></div>
       </div>
@@ -135,7 +135,7 @@
     <aside class="sidebar">
       <div class="sidebar-box">
         <h3>📚 Subjects</h3>
-        <button class="subject-link active" id="sl-maths" onclick="showSubject('maths', null, 'sl-maths')">🔢 Maths — गणित</button>
+        <button class="subject-link" id="sl-maths" onclick="showSubject('maths', null, 'sl-maths')">🔢 Maths — गणित</button>
         <button class="subject-link" id="sl-gk" onclick="showSubject('gk', null, 'sl-gk')">🌍 General Knowledge</button>
         <button class="subject-link" id="sl-science" onclick="showSubject('science', null, 'sl-science')">🔬 Science — विज्ञान</button>
         <button class="subject-link" id="sl-reasoning" onclick="showSubject('reasoning', null, 'sl-reasoning')">🧠 Reasoning</button>
@@ -144,10 +144,9 @@
       <div class="sidebar-box">
         <h3>📂 Categories</h3>
         <ul>
-          <li><a href="education-news.html">📚 Education News</a></li>
-          <li><a href="sarkari-naukri.html">🏫 Sarkari Naukri</a></li>
           <li><a href="study-material.html">✏️ Study Material</a></li>
           <li><a href="app-info.html">✅ Hamare App</a></li>
+          <li><a href="sahitya-darshan.html">📖 Sahitya Darshan</a></li>
         </ul>
       </div>
       <div class="sidebar-box">
@@ -164,12 +163,20 @@
 
   <script>
     function showSubject(subject, tabBtn, sidebarId) {
+      // Sections
       document.querySelectorAll('.subject-section').forEach(s => s.classList.remove('active'));
       document.getElementById('section-' + subject).classList.add('active');
+
+      // Tab buttons
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
       if (tabBtn) {
-        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
         tabBtn.classList.add('active');
+      } else {
+        const tb = document.getElementById('tab-' + subject);
+        if (tb) tb.classList.add('active');
       }
+
+      // Sidebar links
       document.querySelectorAll('.subject-link').forEach(b => b.classList.remove('active'));
       const slId = sidebarId || 'sl-' + subject;
       if (document.getElementById(slId)) document.getElementById(slId).classList.add('active');
@@ -185,8 +192,12 @@
       container.innerHTML = '';
       data.forEach(item => {
         const imageHTML = item.image ? `<img src="${item.image}" alt="${item.title}" class="card-image">` : '';
-        const pdfBtn = item.pdf ? `<a href="${item.pdf}" download class="btn-pdf">⬇️ PDF Download</a>` : '';
-        const readBtn = item.link && item.link !== '#' ? `<a href="${item.link}" class="btn-read">📖 Read More</a>` : '';
+        const pdfBtn   = item.pdf   ? `<a href="${item.pdf}" download class="btn-pdf">⬇️ PDF Download</a>` : '';
+        // Read More: article type ya file field ho to ARTICLE.HTML par bhejo
+        const hasDetail = item.type === 'article' || item.file;
+        const readBtn = hasDetail
+          ? `<a href="Article.html?subject=${item.subject}&id=${item.id}" class="btn-read">📖 Read More</a>`
+          : (item.link && item.link !== '#' ? `<a href="${item.link}" class="btn-read">📖 Read More</a>` : '');
         const typeClass = item.type === 'pdf' ? 'type-pdf' : item.type === 'notes' ? 'type-notes' : 'type-article';
         const typeLabel = item.type === 'pdf' ? '📄 PDF' : item.type === 'notes' ? '📝 Notes' : '📰 Article';
         container.innerHTML += `
@@ -214,6 +225,7 @@
     ];
 
     document.addEventListener('DOMContentLoaded', function() {
+      // Sabhi subjects ka data load karo
       subjects.forEach(s => {
         fetch(s.file)
           .then(res => res.json())
@@ -223,6 +235,16 @@
             if (el) el.innerHTML = '<div class="empty-state">📭 <p>Abhi koi content nahi hai. Jald aayega!</p></div>';
           });
       });
+
+      // URL se tab read karo — e.g. study-material.html?tab=current
+      const urlParams = new URLSearchParams(window.location.search);
+      const activeTab = urlParams.get('tab');
+      if (activeTab) {
+        showSubject(activeTab);
+      } else {
+        // Default: maths tab active
+        showSubject('maths');
+      }
     });
   </script>
 

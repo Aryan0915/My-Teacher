@@ -1,0 +1,140 @@
+{
+  "lastUpdated": "22 March 2026",
+
+  "tests": [
+
+    {
+      "id": "mptet-gk-01",
+      "category": "mptet",
+      "subject": "General Knowledge",
+      "title": "MP TET GK — Practice Set 01",
+      "description": "MP TET exam ke liye GK ke important questions.",
+      "questions": 10,
+      "time": "10",
+      "level": "Medium",
+      "marks": 10,
+      "negativeMark": 0,
+      "date": "22 March 2026",
+      "status": "live",
+      "icon": "🌍",
+      "iconBg": "#e8f0fe",
+
+      "questions_data": [
+        {
+          "question": "मध्यप्रदेश की राजधानी कौन सी है?",
+          "options": ["इंदौर", "भोपाल", "जबलपुर", "ग्वालियर"],
+          "correct": 1
+        },
+        {
+          "question": "भारत का राष्ट्रीय पशु कौन सा है?",
+          "options": ["शेर", "हाथी", "बाघ", "मोर"],
+          "correct": 2
+        },
+        {
+          "question": "भारत का सबसे बड़ा राज्य कौन सा है?",
+          "options": ["मध्यप्रदेश", "राजस्थान", "उत्तरप्रदेश", "महाराष्ट्र"],
+          "correct": 1
+        },
+        {
+          "question": "महात्मा गांधी का जन्म कब हुआ था?",
+          "options": ["1867", "1869", "1870", "1872"],
+          "correct": 1
+        },
+        {
+          "question": "भारत में कितने राज्य हैं?",
+          "options": ["27", "28", "29", "30"],
+          "correct": 1
+        },
+        {
+          "question": "चंद्रमा पर पहुंचने वाला पहला मानव कौन था?",
+          "options": ["Yuri Gagarin", "Buzz Aldrin", "Neil Armstrong", "John Glenn"],
+          "correct": 2
+        },
+        {
+          "question": "भारत का राष्ट्रीय फूल कौन सा है?",
+          "options": ["गुलाब", "सूरजमुखी", "कमल", "गेंदा"],
+          "correct": 2
+        },
+        {
+          "question": "ताजमहल किस शहर में है?",
+          "options": ["दिल्ली", "जयपुर", "आगरा", "लखनऊ"],
+          "correct": 2
+        },
+        {
+          "question": "भारत की मुद्रा का नाम क्या है?",
+          "options": ["डॉलर", "रुपया", "यूरो", "पाउंड"],
+          "correct": 1
+        },
+        {
+          "question": "विश्व का सबसे ऊंचा पर्वत शिखर कौन सा है?",
+          "options": ["K2", "कंचनजंघा", "एवरेस्ट", "मकालू"],
+          "correct": 2
+        }
+      ]
+    },
+
+    {
+      "id": "mptet-math-01",
+      "category": "mptet",
+      "subject": "Mathematics",
+      "title": "MP TET Maths — Practice Set 01",
+      "description": "MP TET ke liye Maths ke basic questions.",
+      "questions": 5,
+      "time": "5",
+      "level": "Easy",
+      "marks": 5,
+      "negativeMark": 0,
+      "date": "22 March 2026",
+      "status": "live",
+      "icon": "📐",
+      "iconBg": "#e3f2fd",
+
+      "questions_data": [
+        {
+          "question": "15 + 27 = ?",
+          "options": ["40", "41", "42", "43"],
+          "correct": 2
+        },
+        {
+          "question": "48 ÷ 6 = ?",
+          "options": ["6", "7", "8", "9"],
+          "correct": 2
+        },
+        {
+          "question": "एक त्रिभुज के तीनों कोणों का योग कितना होता है?",
+          "options": ["90°", "180°", "270°", "360°"],
+          "correct": 1
+        },
+        {
+          "question": "25 का वर्गमूल क्या है?",
+          "options": ["3", "4", "5", "6"],
+          "correct": 2
+        },
+        {
+          "question": "1 किलोमीटर में कितने मीटर होते हैं?",
+          "options": ["10", "100", "1000", "10000"],
+          "correct": 2
+        }
+      ]
+    },
+
+    {
+      "id": "ssc-gk-01",
+      "category": "ssc",
+      "subject": "General Knowledge",
+      "title": "SSC GK — Practice Set 01",
+      "description": "SSC exam ke liye GK practice set.",
+      "questions": 10,
+      "time": "10",
+      "level": "Medium",
+      "marks": 10,
+      "negativeMark": 0.25,
+      "date": "22 March 2026",
+      "status": "coming",
+      "icon": "📘",
+      "iconBg": "#fff3e0",
+      "questions_data": []
+    }
+
+  ]
+}

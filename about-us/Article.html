@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Article — My Teacher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Hind:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="about-us.css">
+  <!-- Markdown renderer -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <style>
+    .article-content h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 20px; font-weight: 700;
+      color: #1a237e; margin-top: 28px;
+      margin-bottom: 12px; padding-left: 14px;
+      border-left: 4px solid #1565c0;
+    }
+    .article-content h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 17px; font-weight: 600;
+      color: #1565c0; margin-top: 20px; margin-bottom: 10px;
+    }
+    .article-content h4 {
+      font-size: 15px; font-weight: 700;
+      color: #1a237e; margin-top: 16px; margin-bottom: 8px;
+    }
+    .article-content p {
+      font-size: 15px; line-height: 1.9;
+      color: #333; margin-bottom: 14px;
+    }
+    .article-content ul, .article-content ol {
+      padding-left: 22px; margin-bottom: 14px;
+    }
+    .article-content li {
+      font-size: 15px; line-height: 1.8;
+      color: #333; margin-bottom: 6px;
+    }
+    .article-content strong { color: #1a237e; }
+    .article-content em { color: #555; font-style: italic; }
+    .article-content img {
+      width: 100%; border-radius: 10px; margin: 16px 0;
+    }
+    .article-content blockquote {
+      background: #e8f0fe;
+      border-left: 4px solid #1a237e;
+      padding: 14px 18px;
+      border-radius: 0 8px 8px 0;
+      margin: 16px 0; font-size: 15px; color: #1a237e;
+    }
+    .article-content table {
+      width: 100%; border-collapse: collapse;
+      margin: 16px 0; font-size: 14px;
+    }
+    .article-content th {
+      background: #1a237e; color: white;
+      padding: 10px 14px; text-align: left;
+    }
+    .article-content td {
+      padding: 9px 14px; border-bottom: 1px solid #e0e0e0;
+    }
+    .article-content tr:nth-child(even) td { background: #f4f6fb; }
+    .article-content a { color: #1565c0; text-decoration: underline; }
+    .article-content code {
+      background: #f4f6fb; padding: 2px 6px;
+      border-radius: 4px; font-size: 13px; color: #c62828;
+    }
+    .pdf-download-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #f57c00; color: white;
+      padding: 10px 22px; border-radius: 8px;
+      text-decoration: none; font-size: 14px;
+      font-weight: 700; margin-bottom: 20px; transition: 0.3s;
+    }
+    .pdf-download-btn:hover { background: #e65100; }
+  </style>
+</head>
+<body>
+
+  <nav class="news-navbar">
+    <a href="../index.html" class="nav-logo">🎓 My Teacher</a>
+    <a href="study-material.html" class="nav-back-btn" id="back-btn">← Back</a>
+  </nav>
+
+  <div class="page-container">
+    <div class="article-area">
+      <span class="article-category" id="category">Loading...</span>
+      <h1 class="article-title" id="title">Loading...</h1>
+      <div class="article-date" id="date"></div>
+      <div id="pdf-btn-wrap"></div>
+      <div class="article-image-wrap">
+        <img class="article-image" id="image" src="" alt="" style="display:none;">
+      </div>
+      <div class="article-content" id="content">
+        <p style="color:#aaa;">Loading content...</p>
+      </div>
+      <a href="study-material.html" class="back-btn" id="back-link">← Wapas jayein</a>
+    </div>
+
+    <aside class="sidebar">
+      <div class="sidebar-box">
+        <h3>📚 Subjects</h3>
+        <ul>
+          <li><a href="study-material.html?tab=maths">🔢 Maths — गणित</a></li>
+          <li><a href="study-material.html?tab=gk">🌍 General Knowledge</a></li>
+          <li><a href="study-material.html?tab=science">🔬 Science — विज्ञान</a></li>
+          <li><a href="study-material.html?tab=reasoning">🧠 Reasoning</a></li>
+          <li><a href="study-material.html?tab=current">📰 Current Affairs</a></li>
+          <li><a href="sahitya-darshan.html">📖 Sahitya Darshan</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-box">
+        <h3>📂 Categories</h3>
+        <ul>
+          <li><a href="study-material.html">✏️ Study Material</a></li>
+          <li><a href="app-info.html">✅ Hamare App</a></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  <script src="Article.js"></script>
+</body>
+</html>

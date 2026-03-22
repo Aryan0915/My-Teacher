@@ -34,5 +34,14 @@
     "image": "image.png/exam stu.jpeg",
     "link": "news/news4.html",
     "category": "Education News"
+  },
+  {
+    "id": "news5",
+    "date": "16 March 2026",
+    "title": "भारतीय नौसेना अग्निवीर भर्ती 2026 का नोटिफिकेशन जारी",
+    "desc": "एम आर और एस एस आर के लिए 14 मार्च से आवेदन शुरू",
+    "image": "image.png/navy .jpeg",
+    "link": "news/news5.html",
+    "category": "Education News"
   }
 ]
