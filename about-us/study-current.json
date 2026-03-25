@@ -28,8 +28,19 @@
     "date": "22 March 2026",
     "title": "Budget 2026 केंद्र का बजट",
     "desc": "निर्मला सितारमण का बजट, आमजन मानस के लिए विपदा",
-    "image": "../image.png/iran-isreal.jpeg",
+    "image": "../image.png/PARLIAMENT.avif",
     "pdf": "",
     "file": "content/current/budget-2026.md"
+  },
+  {
+    "id": "curr4",
+    "subject": "current",
+    "type": "article",
+    "date": "23 March 2026",
+    "title": "Today's Hot Topics",
+    "desc": "आज की प्रमुख हेडलाइन्स, परीक्षा से संबंधी",
+    "image": "../image.png/23 march .jpeg",
+    "pdf": "",
+    "file": "content/current/march-23.md"
   }
 ]
