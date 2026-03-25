@@ -1,0 +1,13 @@
+[
+  {
+    "id": "maths1",
+    "subject": "maths",
+    "type": "notes",
+    "date": "10 March 2025",
+    "title": "Number System — संख्या पद्धति",
+    "desc": "Short description for card",
+    "image": "../image.png/maths-cover.jpeg",
+    "pdf": "",
+    "content": "<h2>Number System</h2><p>Yahan full article content HTML mein likho...</p>"
+  }
+]

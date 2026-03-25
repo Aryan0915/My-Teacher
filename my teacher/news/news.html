@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loading... — My Teacher</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Hind:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="news.css">
+
+  <!-- ✅ Markdown Parser Library -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+  <!-- Schema: JS dynamically update करेगा -->
+  <script type="application/ld+json" id="schema-ld">{}</script>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="news-navbar">
+    <a href="../index.html" class="nav-logo">🎓 My Teacher</a>
+    <a href="../index.html" class="nav-back-btn">← Back to Home</a>
+  </nav>
+
+  <!-- LOADING STATE -->
+  <div id="loading" style="text-align:center; padding:80px 20px;
+       font-size:20px; color:#1a237e; font-family:'Hind',sans-serif;">
+    ⏳ लोड हो रहा है...
+  </div>
+
+  <!-- ERROR STATE -->
+  <div id="error-msg" style="display:none; text-align:center;
+       padding:80px 20px; font-family:'Hind',sans-serif;">
+    <h2 style="color:#c62828; margin-bottom:12px;">❌ पेज नहीं मिला</h2>
+    <p style="margin-bottom:20px;">यह न्यूज उपलब्ध नहीं है।</p>
+    <a href="../index.html" class="back-btn">← होम पर जाएं</a>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="page-container" id="page-wrapper" style="display:none;">
+
+    <!-- LEFT: ARTICLE -->
+    <main class="article-area">
+
+      <span class="article-category" id="art-category"></span>
+      <h1 class="article-title" id="art-title"></h1>
+      <p class="article-date" id="art-date"></p>
+
+      <div class="article-image">
+        <img id="art-img" src="" alt="">
+        <p class="image-caption" id="art-caption"></p>
+      </div>
+
+      <!-- ✅ Markdown content यहाँ inject होगा -->
+      <article class="article-content" id="art-content"></article>
+
+      <!-- PDF Section (default hidden) -->
+      <div class="pdf-section" id="pdf-section" style="display:none;">
+        <h3>📄 PDF Download</h3>
+        <a href="#" id="pdf-link" download class="pdf-btn">
+          ⬇️ Official PDF Download करें
+        </a>
+      </div>
+
+      <a href="../index.html" class="back-btn">⇐ Back to Home</a>
+
+    </main>
+
+    <!-- RIGHT: SIDEBAR -->
+    <aside class="sidebar">
+
+      <div class="sidebar-box">
+        <h3>🔥 Latest Posts</h3>
+        <ul id="latest-list">
+          <!-- JS dynamically भरेगा -->
+        </ul>
+      </div>
+
+      <div class="sidebar-box">
+        <h3>📂 Categories</h3>
+        <ul>
+          <li><a href="../about-us/education-news.html">📚 Education News</a></li>
+          <li><a href="../about-us/sarkari-naukri.html">🏫 Sarkari Naukri</a></li>
+          <li><a href="../about-us/study-material.html">✏️ Study Material</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-box">
+        <h3>🔗 Important Links</h3>
+        <ul>
+          <li><a href="https://www.mpbse.nic.in" target="_blank">MP Board Official</a></li>
+          <li><a href="https://www.mponline.gov.in" target="_blank">MP Online Portal</a></li>
+          <li><a href="https://www.education.mp.gov.in" target="_blank">MP Education Dept.</a></li>
+        </ul>
+      </div>
+
+    </aside>
+  </div>
+
+  <script src="news.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+[
+  {
+    "id": "curr1",
+    "subject": "current",
+    "type": "article",
+    "date": "10 March 2025",
+    "title": "Current Affairs March 2025",
+    "desc": "मार्च महीने के महत्वपूर्ण हॉट टॉपिक्स जो ट्रेंड मे रहे",
+    "image": "",
+    "pdf": "",
+    "file": "content/current/current-affairs-march-2025.md"
+  },
+  {
+    "id": "curr2",
+    "subject": "current",
+    "type": "article",
+    "date": "22 March 2025",
+    "title": "IRAN-ISRAEL WAR, जंग से अब Arab तंग",
+    "desc": "ट्रम्प की तानाशाही, यूरोप में ईंधन संकट, मिडल ईस्ट में ईरान का खौफ",
+    "image": "../image.png/war.jpeg",
+    "pdf": "",
+    "file": "content/current/iran-israel-war.md"
+  },
+  {
+    "id": "curr3",
+    "subject": "current",
+    "type": "article",
+    "date": "22 March 2026",
+    "title": "Budget 2026 केंद्र का बजट",
+    "desc": "निर्मला सितारमण का बजट, आमजन मानस के लिए विपदा",
+    "image": "../image.png/PARLIAMENT.avif",
+    "pdf": "",
+    "file": "content/current/budget-2026.md"
+  },
+  {
+    "id": "curr4",
+    "subject": "current",
+    "type": "article",
+    "date": "23 March 2026",
+    "title": "Today's Hot Topics",
+    "desc": "आज की प्रमुख हेडलाइन्स, परीक्षा से संबंधी",
+    "image": "../image.png/23 march .jpeg",
+    "pdf": "",
+    "file": "content/current/march-23.md"
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "id": "premchand-godan",
+    "subject": "sahitya",
+    "author": "Premchand",
+    "type": "article",
+    "date": "22 March 2026",
+    "title": "Godan — गोदान",
+    "desc": "Premchand ka prasiddh upanyas — kisan jeevan ki kahani.",
+    "image": "../image.png/munshi .jpeg",
+    "pdf": "",
+    "file": "content/sahitya/premchand-godan.md"
+  },
+  {
+    "id": "kabir-dohe",
+    "subject": "sahitya",
+    "author": "Kabirdas",
+    "type": "article",
+    "date": "22 March 2026",
+    "title": "Kabir ke Dohe — कबीर के दोहे",
+    "desc": "Sant Kabir ke prasiddh dohe aur unka arth.",
+    "image": "",
+    "pdf": "",
+    "file": "content/sahitya/kabir-dohe.md"
+  },
+  {
+    "id": "kabir-dohe",
+    "subject": "sahitya",
+    "author": "Kabirdas",
+    "type": "article",
+    "date": "22 March 2026",
+    "title": "Kabir ke Dohe — कबीर के दोहे",
+    "desc": "Sant Kabir ke prasiddh dohe aur unka arth.",
+    "image": "",
+    "pdf": "",
+    "file": "content/sahitya/kabir-dohe.md"
+  },
+  {
+    "id": "Aman-shukla",
+    "subject": "sahitya",
+    "author": "Aman-Shukla",
+    "type": "article",
+    "date": "23 March 2026",
+    "title": "क्रांतिवीर करतार सिंह सराभा",
+    "desc": "भारत के स्वतंत्रता संग्राम के एक अत्यंत साहसी और प्रेरणादायक क्रांतिकारी",
+    "image": "../image.png/aman .jpeg",
+    "pdf": "",
+    "file": "content/sahitya/Aman-shukla.md"
+  },
+  {
+    "id": "Leo-Tolstoy",
+    "subject": "sahitya",
+    "author": "Tolstoy",
+    "type": "article",
+    "date": "23 March 2026",
+    "title": "विश्व प्रसिद्ध लेखक एवं विचारक टॉलस्टॉय",
+    "desc": "सादगी, सत्य और मानवता के महान लेखक — लियो टॉल्सटॉय",
+    "image": "",
+    "pdf": "",
+    "file": "content/sahitya/Tolstoy.md"
+  }
+]

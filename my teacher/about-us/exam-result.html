@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Result — My Teacher</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Hind:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{--primary:#1a237e;--primary-light:#1565c0;--green:#2e7d32;--red:#c62828;--orange:#e65100;--bg:#f4f6fb;}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Hind',sans-serif;background:var(--bg);color:#222;}
+
+    .navbar{background:var(--primary);padding:14px 28px;display:flex;align-items:center;justify-content:space-between;}
+    .nav-logo{color:white;font-size:18px;font-weight:700;text-decoration:none;font-family:'Poppins',sans-serif;}
+    .nav-btn{background:#ffeb3b;color:var(--primary);padding:8px 16px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:700;}
+
+    .main{max-width:900px;margin:30px auto;padding:0 16px 60px;}
+
+    /* HERO */
+    .result-hero{background:linear-gradient(135deg,var(--primary),var(--primary-light));border-radius:16px;padding:32px;color:white;text-align:center;margin-bottom:24px;box-shadow:0 8px 30px rgba(26,35,126,0.3);}
+    .result-hero h1{font-family:'Poppins',sans-serif;font-size:20px;margin-bottom:6px;word-break:break-word;}
+    .cand-meta{font-size:13px;opacity:0.85;margin-bottom:24px;}
+    .score-circle{width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,0.15);border:4px solid rgba(255,255,255,0.5);display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 16px;}
+    .score-pct{font-family:'Poppins',sans-serif;font-size:30px;font-weight:700;line-height:1;}
+    .score-lbl{font-size:12px;opacity:0.8;}
+    .result-grade{display:inline-block;padding:6px 20px;border-radius:20px;font-weight:700;font-size:14px;background:rgba(255,255,255,0.2);}
+
+    /* STATS */
+    .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px;}
+    .stat-card{background:white;border-radius:12px;padding:16px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.07);}
+    .stat-card .num{font-family:'Poppins',sans-serif;font-size:26px;font-weight:700;margin-bottom:4px;}
+    .stat-card .lbl{font-size:12px;color:#888;}
+    .nc{color:var(--green);}.nw{color:var(--red);}.ns{color:var(--orange);}.nm{color:var(--primary);}
+
+    /* INFO */
+    .info-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px;}
+    .info-card{background:white;border-radius:12px;padding:18px;box-shadow:0 2px 8px rgba(0,0,0,0.07);}
+    .info-card h3{font-family:'Poppins',sans-serif;font-size:13px;font-weight:700;color:var(--primary);margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid #e8f0fe;}
+    .info-item{display:flex;justify-content:space-between;font-size:13px;padding:5px 0;border-bottom:1px solid #f5f5f5;color:#444;}
+    .info-item:last-child{border-bottom:none;}
+    .info-item strong{color:#222;}
+
+    /* ACTIONS */
+    .action-btns{display:flex;gap:10px;margin:20px 0;flex-wrap:wrap;}
+    .btn-act{padding:11px 22px;border-radius:8px;border:none;font-family:'Poppins',sans-serif;font-size:13px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block;transition:0.2s;}
+    .btn-home{background:var(--primary);color:white;}
+    .btn-retry{background:white;color:var(--primary);border:2px solid var(--primary);}
+    .btn-print{background:#f4f6fb;color:#444;border:2px solid #e0e0e0;}
+
+    /* ANSWER SHEET */
+    .answer-sheet{background:white;border-radius:12px;padding:22px;box-shadow:0 2px 8px rgba(0,0,0,0.07);}
+    .answer-sheet h2{font-family:'Poppins',sans-serif;font-size:17px;color:var(--primary);margin-bottom:6px;}
+    .answer-sheet>p{font-size:13px;color:#888;margin-bottom:18px;}
+    .sheet-filter{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap;}
+    .sf-btn{padding:7px 14px;border-radius:8px;border:2px solid #e0e0e0;background:white;font-size:12px;font-weight:600;cursor:pointer;font-family:'Poppins',sans-serif;transition:0.2s;}
+    .sf-btn.active{background:var(--primary);color:white;border-color:var(--primary);}
+
+    .q-item{border:2px solid #e8e8e8;border-radius:10px;padding:16px;margin-bottom:12px;}
+    .q-item.correct{border-color:#a5d6a7;background:#f1f8e9;}
+    .q-item.wrong{border-color:#ef9a9a;background:#fce4e4;}
+    .q-item.skipped{border-color:#ffe082;background:#fffde7;}
+    .q-item-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-wrap:wrap;gap:6px;}
+    .q-num-badge{font-size:12px;font-weight:700;padding:3px 10px;border-radius:20px;background:var(--bg);color:var(--primary);}
+    .q-status{font-size:12px;font-weight:700;padding:4px 12px;border-radius:20px;}
+    .sc{background:#e8f5e9;color:var(--green);}.sw{background:#ffebee;color:var(--red);}.ss{background:#fff8e1;color:var(--orange);}
+
+    /* Bilingual question in answer sheet */
+    .q-q-hi{font-family:'Poppins',sans-serif;font-size:14px;font-weight:600;color:#1a1a2e;line-height:1.5;word-break:break-word;}
+    .q-q-en{font-size:12px;color:#777;line-height:1.4;word-break:break-word;margin-top:4px;font-style:italic;padding-top:6px;border-top:1px dashed #e0e0e0;}
+    .q-question-wrap{margin-bottom:12px;}
+
+    .opts-review{display:flex;flex-direction:column;gap:7px;}
+    .opt-row{display:flex;align-items:flex-start;gap:8px;padding:8px 12px;border-radius:8px;font-size:13px;border:2px solid transparent;}
+    .opt-row.cor{background:#e8f5e9;border-color:var(--green);}
+    .opt-row.wrg{background:#ffebee;border-color:var(--red);}
+    .opt-lbl{width:24px;height:24px;border-radius:50%;background:#e0e0e0;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:11px;flex-shrink:0;margin-top:1px;}
+    .opt-row.cor .opt-lbl{background:var(--green);color:white;}
+    .opt-row.wrg .opt-lbl{background:var(--red);color:white;}
+    .opt-content-review{display:flex;flex-direction:column;min-width:0;}
+    .opt-hi-r{font-size:13px;color:#222;word-break:break-word;line-height:1.4;}
+    .opt-en-r{font-size:11px;color:#777;word-break:break-word;font-style:italic;margin-top:2px;}
+
+    .marks-note{font-size:12px;margin-top:8px;padding:5px 10px;border-radius:6px;font-weight:600;display:inline-block;}
+    .mp{background:#e8f5e9;color:var(--green);}.mn{background:#ffebee;color:var(--red);}.mz{background:#f4f6fb;color:#888;}
+
+    @media(max-width:650px){
+      .stats-row{grid-template-columns:repeat(2,1fr);}
+      .info-row{grid-template-columns:1fr;}
+      .result-hero{padding:22px;}
+    }
+    @media print{.navbar,.action-btns,.sheet-filter{display:none;}body{background:white;}}
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="../index.html" class="nav-logo">🎓 My Teacher</a>
+  <a href="text-exam.html" class="nav-btn">📝 More Tests</a>
+</nav>
+
+<div class="main" id="main">
+  <div style="text-align:center;padding:60px;color:#888;">⏳ Result calculate ho raha hai...</div>
+</div>
+
+<script>
+  // Split option by "/" for bilingual
+  function splitOpt(text){
+    const idx=text.indexOf('/');
+    if(idx===-1) return{hi:text,en:''};
+    return{hi:text.slice(0,idx).trim(),en:text.slice(idx+1).trim()};
+  }
+
+  function fmtTime(s){return Math.floor(s/60)+'m '+(s%60)+'s';}
+
+  const raw=sessionStorage.getItem('resultData');
+  if(!raw){
+    document.getElementById('main').innerHTML=
+      '<div style="text-align:center;padding:60px;"><h2>No result found.</h2><br><a href="text-exam.html">Go to Tests</a></div>';
+  } else {
+    const rd=JSON.parse(raw);
+    const qs=rd.questions||[];
+    const ans=rd.answers||{};
+    const c=rd.candidate||{};
+    const neg=rd.negativeMark||0;
+    const tot=qs.length;
+    // AUTO MARKS = total questions
+    const totalMarks=rd.marks||tot;
+    const perQ=totalMarks/tot;
+
+    let correct=0,wrong=0,skipped=0,marks=0;
+    qs.forEach((q,i)=>{
+      if(ans[i]===undefined){skipped++;}
+      else if(Number(ans[i])===Number(q.correct)){correct++;marks+=perQ;}
+      else{wrong++;marks-=neg*perQ;}
+    });
+    marks=Math.max(0,Math.round(marks*100)/100);
+    const pct=Math.round((marks/totalMarks)*100);
+    const acc=(correct+wrong)>0?Math.round((correct/(correct+wrong))*100):0;
+    const grade=pct>=90?'Outstanding 🏆':pct>=75?'Excellent ⭐':pct>=60?'Good 👍':pct>=40?'Average 📚':'Keep Practicing 💪';
+
+    const items=qs.map((q,i)=>{
+      const ua=ans[i];
+      const st=ua===undefined?'skipped':Number(ua)===Number(q.correct)?'correct':'wrong';
+      return{q,i,ua,st};
+    });
+
+    function renderSheet(filter){
+      const list=filter==='all'?items:items.filter(x=>x.st===filter);
+      const labels=['A','B','C','D','E'];
+      let html='';
+      list.forEach(({q,i,ua,st})=>{
+        const badge=st==='correct'
+          ?'<span class="q-status sc">✅ Correct</span>'
+          :st==='wrong'?'<span class="q-status sw">❌ Wrong</span>'
+          :'<span class="q-status ss">⭕ Skipped</span>';
+        const mNote=st==='correct'
+          ?`<span class="marks-note mp">+${perQ} marks</span>`
+          :st==='wrong'&&neg>0
+          ?`<span class="marks-note mn">-${Math.round(neg*perQ*100)/100} marks</span>`
+          :`<span class="marks-note mz">0 marks</span>`;
+
+        // Question display
+        let qHtml=`<div class="q-q-hi">${q.qHi||q.question||''}</div>`;
+        if(q.qEn) qHtml+=`<div class="q-q-en">${q.qEn}</div>`;
+
+        const opts=(q.options||[]).map((opt,oi)=>{
+          const isCor=oi===Number(q.correct);
+          const isUsr=oi===Number(ua);
+          let cls='';
+          if(isCor) cls='cor';
+          else if(isUsr&&!isCor) cls='wrg';
+          const icon=isCor?' ✅':(isUsr&&!isCor)?' ❌':'';
+          const {hi,en}=splitOpt(opt);
+          let optCont=`<div class="opt-hi-r">${hi}${icon}</div>`;
+          if(en) optCont+=`<div class="opt-en-r">${en}</div>`;
+          return `<div class="opt-row ${cls}"><div class="opt-lbl">${labels[oi]}</div><div class="opt-content-review">${optCont}</div></div>`;
+        }).join('');
+
+        html+=`<div class="q-item ${st}">
+          <div class="q-item-top"><span class="q-num-badge">Q${i+1}</span>${badge}</div>
+          <div class="q-question-wrap">${qHtml}</div>
+          <div class="opts-review">${opts}</div>
+          ${mNote}
+        </div>`;
+      });
+      document.getElementById('ans-list').innerHTML=html||
+        '<div style="text-align:center;padding:30px;color:#aaa;">Koi question nahi mila।</div>';
+    }
+
+    window.filterSheet=function(f,btn){
+      document.querySelectorAll('.sf-btn').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      renderSheet(f);
+    };
+
+    document.getElementById('main').innerHTML=`
+      <div class="result-hero">
+        <h1>🎯 ${rd.testTitle}</h1>
+        <div class="cand-meta">👤 ${c.name||''} &nbsp;•&nbsp; 📱 ${c.mobile||''} &nbsp;•&nbsp; 🏙️ ${c.city||''}</div>
+        <div class="score-circle"><div class="score-pct">${pct}%</div><div class="score-lbl">Score</div></div>
+        <div class="result-grade">${grade}</div>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-card"><div class="num nc">${correct}</div><div class="lbl">✅ Correct</div></div>
+        <div class="stat-card"><div class="num nw">${wrong}</div><div class="lbl">❌ Wrong</div></div>
+        <div class="stat-card"><div class="num ns">${skipped}</div><div class="lbl">⭕ Skipped</div></div>
+        <div class="stat-card"><div class="num nm">${marks}/${totalMarks}</div><div class="lbl">🎯 Marks</div></div>
+      </div>
+
+      <div class="info-row">
+        <div class="info-card">
+          <h3>📊 Performance</h3>
+          <div class="info-item"><span>Total Questions</span><strong>${tot}</strong></div>
+          <div class="info-item"><span>Attempted</span><strong>${correct+wrong}</strong></div>
+          <div class="info-item"><span>Accuracy</span><strong>${acc}%</strong></div>
+          <div class="info-item"><span>Marks Obtained</span><strong>${marks} / ${totalMarks}</strong></div>
+          ${neg>0?`<div class="info-item"><span>Negative Marking</span><strong>-${neg} per wrong</strong></div>`:''}
+          <div class="info-item"><span>Score %</span><strong>${pct}%</strong></div>
+        </div>
+        <div class="info-card">
+          <h3>👤 Candidate</h3>
+          <div class="info-item"><span>Name</span><strong>${c.name||'-'}</strong></div>
+          <div class="info-item"><span>Mobile</span><strong>${c.mobile||'-'}</strong></div>
+          <div class="info-item"><span>City</span><strong>${c.city||'-'}</strong></div>
+          <div class="info-item"><span>Level</span><strong>${c.level||'-'}</strong></div>
+          <div class="info-item"><span>Time Taken</span><strong>${fmtTime(rd.timeTaken||0)}</strong></div>
+          <div class="info-item"><span>Date</span><strong>${new Date().toLocaleDateString('hi-IN')}</strong></div>
+        </div>
+      </div>
+
+      <div class="action-btns">
+        <a href="text-exam.html" class="btn-act btn-home">📝 More Tests</a>
+        <a href="text-exam.html" class="btn-act btn-retry">🔄 Retry</a>
+        <button class="btn-act btn-print" onclick="window.print()">🖨️ Print</button>
+      </div>
+
+      <div class="answer-sheet">
+        <h2>📋 Detailed Answer Sheet</h2>
+        <p>Har question ka sahi jawab aur aapka jawab neeche diya hai।</p>
+        <div class="sheet-filter">
+          <button class="sf-btn active" onclick="filterSheet('all',this)">📋 All (${tot})</button>
+          <button class="sf-btn" onclick="filterSheet('correct',this)">✅ Correct (${correct})</button>
+          <button class="sf-btn" onclick="filterSheet('wrong',this)">❌ Wrong (${wrong})</button>
+          <button class="sf-btn" onclick="filterSheet('skipped',this)">⭕ Skipped (${skipped})</button>
+        </div>
+        <div id="ans-list"></div>
+      </div>`;
+
+    renderSheet('all');
+  }
+</script>
+</body>
+</html>

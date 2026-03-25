@@ -1,0 +1,24 @@
+[
+  {
+    "id": "gk",
+    "subject": "gk",
+    "type": "notes",
+    "date": "10 March 2025",
+    "title": "Number  — संख्या ",
+    "desc": "Short description for card",
+    "image": "../image.png/maths-cover.jpeg",
+    "pdf": "",
+    "content": "<h2>Number System</h2><p>Yahan full article content HTML mein likho...</p>"
+  },
+  {
+    "id": "curr3",
+    "subject": "current",
+    "type": "article",
+    "date": "22 March 2026",
+    "title": "Budget 2026 केंद्र का बजट",
+    "desc": "निर्मला सितारमण का बजट, आमजन मानस के लिए विपदा",
+    "image": "../image.png/PARLIAMENT.avif",
+    "pdf": "",
+    "file": "content/current/budget-2026.md"
+  }
+]

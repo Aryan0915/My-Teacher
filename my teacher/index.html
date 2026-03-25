@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Teacher - शिक्षा की दुनिया</title>
+  <meta name="google-site-verification" content="_fqVQV7vJ9G1dm02p-SW_F2QU2pJjLrC_HeO9mjUkn0" />
+
+  <meta name="description" content="Latest education news, exam updates, study materials, TET, Hamare Shikshak and teacher information for students in India.">
+  <meta name="keywords" content="education news, exam updates, teacher news, study material, school updates, education india">
+  <meta name="author" content="My Teacher India">
+  <meta name="robots" content="index, follow">
+
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Hind:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="construction-notice">सूचना:
+  कार्य प्रगति पर है। आपके लिए ताजे-ताजे test तैयार हैं। वेबसाइट पुनः 14.04.2026 को सभी के लिए शुरू। 
+</div>
+  <!-- NAVIGATION BAR -->
+  <nav class="navbar">
+    <div class="nav-logo">🎓 My Teacher</div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#news">News</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+  </nav>
+
+  <!-- NEWS TICKER -->
+  <div class="ticker-wrapper">
+    <div class="ticker-label">
+      हेड लाइन्स &nbsp;|&nbsp; <span id="live-datetime"></span>
+    </div>
+    <div class="ticker-track">
+      <div class="ticker-content" id="ticker-content"></div>
+    </div>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section id="home" class="hero-section">
+
+    <!-- NOTICE PAPER -->
+    <div class="notice-stack">
+      <div class="notice-paper" id="notice-paper">
+        <div class="notice-pin"></div>
+        <div class="notice-header">सूचना पत्र</div>
+        <div class="notice-body" id="notice-body"></div>
+      </div>
+      <div class="notice-shadow-1"></div>
+      <div class="notice-shadow-2"></div>
+    </div>
+
+    <!-- NOTICE TOGGLE BUTTON -->
+    <button class="notice-toggle-btn" onclick="toggleNotice()" title="सूचना पत्र">
+      <svg class="notice-btn-icon open-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+        <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+        <circle cx="18" cy="8" r="3" fill="#e53935" stroke="none" class="notif-dot"/>
+      </svg>
+      <svg class="notice-btn-icon close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+      </svg>
+    </button>
+
+    <!-- HERO CONTENT -->
+    <div class="hero-content">
+      <h1>🎓 Welcome to My Teacher</h1>
+      <p>शिक्षा क्षेत्र की खबरें, हमारे शिक्षक एप, Daily Current & Study Material for All Subjects</p>
+      <a href="#news" class="btn-main">📰 मुख्य समाचार</a>
+    <!-- ADD PDF SECTION HERE -->
+    <div style="margin-top: 20px; text-align: center;"
+    <h3> भर्ती Notification </h3>
+    <!--DOWNLOAD BUTTON-->
+    <a href="assets/pdf/notice1.pdf" download
+       style="display: inline-block;
+       padding: 8px 16px; background: #28a745;
+       color: #fff; text-decoration: none;
+       border-radius: 5px; margin-bottom: 10px;">
+       डाउनलोड करें 
+    </a>
+    </div>
+  </div>
+    
+    <img src="image.png/logo-design.png" class="hero-icon" alt="My Teacher Logo">
+
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="about-section">
+    <div class="container">
+      <h2>About Us — हमारे बारे में</h2>
+      <p class="about-intro">My Teacher एक शैक्षिक वेबसाइट है जो शिक्षकों और छात्रों को शिक्षा जगत की नवीनतम जानकारी प्रदान करती है।</p>
+      <div class="about-cards">
+        <a href="about-us/text-exam.html" class="about-card">
+          <span>✅</span>
+          <h3>Test Exam</h3>
+          <p>शिक्षक के बारे में</p>
+          </a>
+        <a href="about-us/app-info.html" class="about-card">
+          <span>✅</span>
+          <h3>Hamare Shikshak App</h3>
+          <p>हमारे शिक्षक एप के बारे में</p>
+        </a>
+        <a href="about-us/study-material.html" class="about-card">
+          <span>✏️</span>
+          <h3>Study Material</h3>
+          <p>पाठ्य सामग्री एवं नोट्स</p>
+        </a>
+        <a href="about-us/sahitya-darshan.html" class="about-card">
+          <span>▧</span>
+          <h3>Litrature Philosophy </h3>
+          <p>हिन्दी साहित्य एवं फ़िलॉसफ़ी</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWS SECTION -->
+  <section id="news" class="news-section">
+    <div class="container">
+      <h2>📰 Latest News — शिक्षा क्षेत्र से जुड़ी खबरें</h2>
+      <div class="news-grid" id="news-container"></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact" class="footer">
+    <div class="container">
+      <p>🎓 <strong>My Teacher Website</strong> — शिक्षा क्षेत्र की खबरें</p>
+      <p>📧 Email: tomarsingh004@gmail.com | 📞 Phone: 9754065703</p>
+      <p>© 2025 My Teacher. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- SIRF SCRIPT.JS — koi site-data.js nahi -->
+  <script src="script.js"></script>
+
+</body>
+</html>

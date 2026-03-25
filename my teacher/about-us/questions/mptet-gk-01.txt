@@ -1,0 +1,79 @@
+Q. मध्यप्रदेश की राजधानी कौन सी है?
+QE. What is the capital of Madhya Pradesh?
+A. इंदौर / Indore
+B. भोपाल / Bhopal
+C. जबलपुर / Jabalpur
+D. ग्वालियर / Gwalior
+ANS. B
+
+Q. भारत का राष्ट्रीय पशु कौन सा है?
+QE. What is the National Animal of India?
+A. शेर / Lion
+B. हाथी / Elephant
+C. बाघ / Tiger
+D. मोर / Peacock
+ANS. C
+
+Q. भारत का सबसे बड़ा राज्य (क्षेत्रफल) कौन सा है?
+QE. Which is the largest state of India by area?
+A. मध्यप्रदेश / Madhya Pradesh
+B. उत्तरप्रदेश / Uttar Pradesh
+C. राजस्थान / Rajasthan
+D. महाराष्ट्र / Maharashtra
+ANS. C
+
+Q. महात्मा गांधी का जन्म कब हुआ था?
+QE. When was Mahatma Gandhi born?
+A. 1867
+B. 1869
+C. 1870
+D. 1872
+ANS. B
+
+Q. भारत में कितने राज्य हैं?
+QE. How many states are there in India?
+A. 27
+B. 28
+C. 29
+D. 30
+ANS. B
+
+Q. चंद्रमा पर पहुंचने वाला पहला मानव कौन था?
+QE. Who was the first human to walk on the Moon?
+A. Yuri Gagarin
+B. Buzz Aldrin
+C. Neil Armstrong
+D. John Glenn
+ANS. C
+
+Q. भारत का राष्ट्रीय फूल कौन सा है?
+QE. What is the National Flower of India?
+A. गुलाब / Rose
+B. सूरजमुखी / Sunflower
+C. कमल / Lotus
+D. गेंदा / Marigold
+ANS. C
+
+Q. ताजमहल किस शहर में स्थित है?
+QE. In which city is the Taj Mahal located?
+A. दिल्ली / Delhi
+B. जयपुर / Jaipur
+C. आगरा / Agra
+D. लखनऊ / Lucknow
+ANS. C
+
+Q. भारत की मुद्रा का नाम क्या है?
+QE. What is the name of India's currency?
+A. डॉलर / Dollar
+B. रुपया / Rupee
+C. यूरो / Euro
+D. पाउंड / Pound
+ANS. B
+
+Q. विश्व का सबसे ऊंचा पर्वत शिखर कौन सा है?
+QE. Which is the highest mountain peak in the world?
+A. K2
+B. कंचनजंघा / Kangchenjunga
+C. एवरेस्ट / Everest
+D. मकालू / Makalu
+ANS. C

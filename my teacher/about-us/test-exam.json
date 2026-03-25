@@ -1,0 +1,66 @@
+{
+  "lastUpdated": "22 March 2026",
+
+  "tests": [
+
+    {
+      "id": "mptet-gk-01",
+      "category": "mptet",
+      "subject": "General Knowledge",
+      "title": "MP TET GK — Practice Set 01",
+      "description": "MP TET exam ke liye GK ke important questions.",
+      "level": "Medium",
+      "date": "22 March 2026",
+      "status": "live",
+      "icon": "🌍",
+      "iconBg": "#e8f0fe",
+      "negativeMark": 0.25,
+      "questionsFile": "questions/mptet-gk-01.txt"
+    },
+
+    {
+      "id": "mptet-math-01",
+      "category": "mptet",
+      "subject": "Mathematics",
+      "title": "MP TET Maths — Practice Set 01",
+      "description": "Number System, Percentage, Ratio ke questions.",
+      "level": "Easy",
+      "date": "22 March 2026",
+      "status": "live",
+      "icon": "📐",
+      "iconBg": "#e3f2fd",
+      "negativeMark": 0.25,
+      "questionsFile": "questions/mptet-math-01.txt"
+    },
+
+    {
+      "id": "ssc-gk-01",
+      "category": "ssc",
+      "subject": "General Knowledge",
+      "title": "SSC GK — Practice Set 01",
+      "description": "SSC exam ke liye GK practice set.",
+      "level": "Medium",
+      "date": "22 March 2026",
+      "status": "live",
+      "icon": "📘",
+      "iconBg": "#fff3e0",
+      "negativeMark": 0.25,
+      "questionsFile": "questions/ssc-gk-01.txt"
+    },
+    {
+      "id": "ssc-History-01",
+      "category": "ssc",
+      "subject": "General Knowledge",
+      "title": "SSC History — Practice Set 01",
+      "description": "धुरंधर सीरीज",
+      "level": "Medium",
+      "date": "25 March 2026",
+      "status": "live",
+      "icon": "📘",
+      "iconBg": "#fff3e0",
+      "negativeMark": 0.25,
+      "questionsFile": "questions/ssc-History-01"
+    }
+
+  ]
+}
