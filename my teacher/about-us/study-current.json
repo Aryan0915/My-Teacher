@@ -38,9 +38,20 @@
     "type": "article",
     "date": "23 March 2026",
     "title": "Today's Hot Topics",
-    "desc": "आज की प्रमुख हेडलाइन्स, परीक्षा से संबंधी",
+    "desc": "करंट अफेयर्स की दृष्टि से महत्त्वपूर्ण",
     "image": "../image.png/23 march .jpeg",
     "pdf": "",
     "file": "content/current/march-23.md"
+  },
+  {
+    "id": "curr5",
+    "subject": "current",
+    "type": "article",
+    "date": "26 March 2026",
+    "title": "Deep effect in the next few days, लॉकडाउन जैसे हालत संभव?",
+    "desc": "आगामी दिनों में भारत पर पड़ेगा गहरा असर, आमजन होंगे प्रभावित",
+    "image": "",
+    "pdf": "",
+    "file": "content/current/war.md"
   }
 ]

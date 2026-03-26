@@ -1,148 +1,63 @@
-// ============================================================
-// SITE-DATA.JS — MY TEACHER WEBSITE
-// SIRF YE EK FILE ROZ UPDATE KARO — POORI WEBSITE AUTOMATIC!
-// ============================================================
-// 
-// KAISE USE KAREIN:
-// 1. VS Code mein sirf ye file kholo
-// 2. Jo section update karna ho wahan changes karo
-// 3. Ctrl + S dabao — website automatically update!
-//
-// ============================================================
+// ================================================================
+// SITE-DATA.JS — SIRF YE FILE ROZ UPDATE KARO
+// Koi bhi function mat likho — sirf data yahan hoga
+// ================================================================
 
-
-// ============================================================
-// 1. TICKER — Running news (navbar ke neeche wali)
-// Add/Remove karo — automatically scroll mein aayega
-// ============================================================
+// ===== 1. TICKER ===== 
 const tickerItems = [
-  {
-    text: "करंट अफेयर्स का सेक्शन बन गया अभी चेक करें स्टडी मटेरियल में",
-    
-  },
-  {
-    text: "स्टडी मटेरियल मे सभी विषयों पर काम जारी है अगले कुछ दिनों मे नया content देखने को मिलेगा",
-    
-  },
-  {
-    text: "अब आपके लिए नए टेस्ट, जिसमे रोचक प्रश्न, अपनी अंकसूची के साथ, सभी प्रश्नों का विश्लेषण भी",
-    
-  },
-  {
-    text: "साहित्य में मिलेगा पुरानी किताबों का संगम, जिसमे क्लासिक साहित्य का होगा जमावड़ा",
-    
-  }
+  { text: "हमारी वेबसाइट में कंटेन्ट लेखक की आवश्यकता, पढ़ें नोटिफिकेशन" },
+  { text: "मध्यप्रदेश भोज (ओपन यूनिवर्सिटी) में प्रवेश परीक्षा फॉर्म शुरू, notice पढे" },
+  { text: "करंट अफेयर्स का सेक्शन बन गया अभी चेक करें स्टडी मटेरियल में" },
+  { text: "स्टडी मटेरियल मे सभी विषयों पर काम जारी है अगले कुछ दिनों मे नया content देखने को मिलेगा" },
+  { text: "अब आपके लिए नए टेस्ट, जिसमे रोचक प्रश्न, अपनी अंकसूची के साथ, सभी प्रश्नों का विश्लेषण भी" },
+  { text: "नए टेस्ट सीरीज, जाओ देखो, प्रश्नों का analysis भी साथ में" }
 ];
 
-
-// ============================================================
-// 2. NOTICE PAPER — Hero section mein left side
-// Date aur 3 items update karo daily
-// ============================================================
+// ===== 2. NOTICE PAPER — Date daily update karo =====
 const noticeData = {
-  date: "23 March 2026",
+  date: "26 March 2026",
   items: [
-    {
-      heading: "करंट अफेयर्स की सूचना",
-      text: "study material के current section में देखें"
-    },
-    {
-      heading: "टेस्ट exam का नया इंतजाम",
-      text: "सभी प्रमुख परीक्षाओ के मुफ़्त टेस्ट"
-    },
-    {
-      heading: "अध्ययन सामग्री",
-      text: "नए नोट्स Study Material में उपलब्ध"
-    }
+    { heading: "करंट अफेयर्स की सूचना",   text: "study material के current section में देखें" },
+    { heading: "टेस्ट exam का नया इंतजाम", text: "सभी प्रमुख परीक्षाओ के मुफ़्त टेस्ट" },
+    { heading: "अध्ययन सामग्री",           text: "नए नोट्स Study Material में उपलब्ध" }
   ]
 };
 
-
-// ============================================================
-// 3. HOMEPAGE NEWS CARDS — index.html pe dikhne wale cards
-// Nai entry add karo ya purani hatao
-// ============================================================
+// ===== 3. HOMEPAGE NEWS CARDS — Roz nai khabar yahan add karo =====
 const homeNewsData = [
   {
-    "id": "news1",
-    "date": "12 March 2026",
-    "title": "MP Board Result 2026 — मई में आएगा परिणाम",
-    "desc": "मध्यप्रदेश बोर्ड ने 10वीं और 12वीं के परिणाम की तिथि घोषित की।",
-    "image": "",
-    "link": "about-us/education-news.html",
-    "category": "Education News"
+    id: "news1",
+    date: "25 March 2026",
+    title: "क्या TET कैसे होगा सर्वे और परीक्षा",
+    desc: "स्कूल शिक्षा विभाग ने जारी की गाइडलाइन",
+    image: "image.png/article-image.jpeg",
+    link: "news/news.html?id=news1",
+    category: "Education News"
+  },
+  {
+    id: "news2",
+    date: "25 March 2026",
+    title: "डिजिटल शिक्षा को बढ़ावा",
+    desc: "मध्यप्रदेश बोर्ड ने 10वीं और 12वीं के परिणाम की तिथि घोषित की।",
+    image: "image.png/digital.jpeg",
+    link: "news/news.html?id=news2",
+    category: "Education News"
   }
+  // Nayi khabar add karni ho to yahan copy karo:
+  // { id: "news2", date: "...", title: "...", desc: "...", image: "", link: "#", category: "..." },
 ];
 
-
-
-// ============================================================
-// 6. STUDY MATERIAL — about-us/study-material.html
-// Har subject ke liye alag section
-// type: "pdf" / "notes" / "article"
-// ============================================================
+// ===== 4. STUDY MATERIAL =====
 const studyData = {
   maths: [
-    {
-      "id": "maths1",
-      "date": "10 March 2026",
-      "title": "Number System — संख्या पद्धति",
-      "desc": "MP TET ke liye Number System ke complete notes.",
-      "image": "",
-      "pdf": "",
-      "link": "#",
-      "type": "notes"
-    }
+    { id: "maths1", date: "10 March 2026", title: "Number System — संख्या पद्धति",
+      desc: "MP TET ke liye Number System ke complete notes.", image: "", pdf: "", link: "#", type: "notes" }
   ],
   gk: [
-    {
-      "id": "gk1",
-      "date": "10 March 2026",
-      "title": "Madhya Pradesh GK — सामान्य ज्ञान",
-      "desc": "MP TET ke liye Madhya Pradesh ka poora GK.",
-      "image": "",
-      "pdf": "",
-      "link": "#",
-      "type": "pdf"
-    }
+    { id: "gk1", date: "10 March 2026", title: "Madhya Pradesh GK — सामान्य ज्ञान",
+      desc: "MP TET ke liye Madhya Pradesh ka poora GK.", image: "", pdf: "", link: "#", type: "pdf" }
   ],
-  science: [],
+  science:   [],
   reasoning: [],
-  current: []
+  current:   []
 };
-
-
-// ============================================================
-// YE NEECHE WALA CODE MAT CHHUO — AUTOMATIC SYSTEM HAI
-// ============================================================
-(function applyAllData() {
-
-  // Ticker apply
-  if (typeof buildTicker === 'function') buildTicker();
-
-  // Notice apply
-  if (typeof buildNotice === 'function') buildNotice();
-
-  // Homepage news cards
-  const homeContainer = document.getElementById('news-container');
-  if (homeContainer && homeNewsData) {
-    homeContainer.innerHTML = '';
-    homeNewsData.forEach(item => {
-      const imgHTML = item.image
-        ? `<img src="${item.image}" alt="${item.title}" class="card-img">`
-        : '';
-      homeContainer.innerHTML += `
-        <div class="content-card">
-          ${imgHTML}
-          <div class="card-body">
-            <div class="card-date">📅 ${item.date}</div>
-            <span class="card-category">${item.category}</span>
-            <h3>${item.title}</h3>
-            <p>${item.desc}</p>
-            <a href="${item.link}" class="read-more">Read More →</a>
-          </div>
-        </div>`;
-    });
-  }
-
-})();
