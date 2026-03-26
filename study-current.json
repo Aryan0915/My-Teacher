@@ -28,8 +28,30 @@
     "date": "22 March 2026",
     "title": "Budget 2026 केंद्र का बजट",
     "desc": "निर्मला सितारमण का बजट, आमजन मानस के लिए विपदा",
-    "image": "../image.png/iran-isreal.jpeg",
+    "image": "../image.png/PARLIAMENT.avif",
     "pdf": "",
     "file": "content/current/budget-2026.md"
+  },
+  {
+    "id": "curr4",
+    "subject": "current",
+    "type": "article",
+    "date": "23 March 2026",
+    "title": "Today's Hot Topics",
+    "desc": "करंट अफेयर्स की दृष्टि से महत्त्वपूर्ण",
+    "image": "../image.png/23 march .jpeg",
+    "pdf": "",
+    "file": "content/current/march-23.md"
+  },
+  {
+    "id": "curr5",
+    "subject": "current",
+    "type": "article",
+    "date": "26 March 2026",
+    "title": "Deep effect in the next few days, लॉकडाउन जैसे हालत संभव?",
+    "desc": "आगामी दिनों में भारत पर पड़ेगा गहरा असर, आमजन होंगे प्रभावित",
+    "image": "",
+    "pdf": "",
+    "file": "content/current/war.md"
   }
 ]
