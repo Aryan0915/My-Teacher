@@ -60,6 +60,20 @@
       "iconBg": "#fff3e0",
       "negativeMark": 0.25,
       "questionsFile": "questions/ssc-History-01"
+    },
+     {
+      "id": "UP-Police",
+      "category": "UP-COP",
+      "subject": "General Knowledge",
+      "title": "UP Police",
+      "description": "धुरंधर सीरीज",
+      "level": "Medium",
+      "date": "27 March 2026",
+      "status": "live",
+      "icon": "📘",
+      "iconBg": "#fff3e0",
+      "negativeMark": 0.25,
+      "questionsFile": "questions/up"
     }
 
   ]
